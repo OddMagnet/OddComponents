@@ -36,6 +36,7 @@
 		4C1E7175256386A90001D6B1 = {
 			isa = PBXGroup;
 			children = (
+				4C445C142563885100EE579D /* FilteringList */,
 				4C1E7180256386A90001D6B1 /* OddComponents */,
 				4C1E717F256386A90001D6B1 /* Products */,
 			);
@@ -67,6 +68,13 @@
 				4C1E7188256386AB0001D6B1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4C445C142563885100EE579D /* FilteringList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FilteringList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
