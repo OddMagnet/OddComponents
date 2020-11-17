@@ -8,4 +8,14 @@ This `README.md` only contains a short description, more details are available i
 
 ## Components
 ### FilteringList
-A List that can be filtered based on the users input
+A customizable List that can be filtered based on the users input.
+```
+    /// A customizable filterable list
+    /// - Parameters:
+    ///   - data: The data for the list
+    ///   - infoString: Optional, the string shown in the search field
+    ///   - filterKeys: The KeyPaths being searched on user input
+    ///   - sortingKey: Optional, the KeyPath by which the list is sorted
+    ///   - ascending: Optional, if the sort order is ascending or not
+    ///   - rowContent: The content of the lists filtered rows
+```
