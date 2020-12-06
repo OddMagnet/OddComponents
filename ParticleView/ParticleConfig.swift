@@ -36,9 +36,7 @@ struct ParticleConfig: Codable {
         }
     }
     var particleCount: Int
-    var animation: Animation
     var animationDelayThreshold: Double
-    var colors: [Color]
     var blendMode: BlendMode
 
     // Movement
@@ -64,8 +62,8 @@ struct ParticleConfig: Codable {
 
     init(
         particleType: ParticleType, particleCount: Int,
-        animation: Animation = Animation.linear(duration: 1).repeatForever(autoreverses: false), animationDelayThreshold: Double = 1.0,
-        colors: [Color] = [Color.white], blendMode: BlendMode = .normal,
+        animationDelayThreshold: Double = 1.0,
+        blendMode: BlendMode = .normal,
         creationPoint: UnitPoint = .center, creationRange: CGSize = .zero,
         angle: Angle = .zero, angleRange: Angle = .zero,
         speed: Double = 50.0, speedRange: Double = 0.0,
@@ -75,9 +73,7 @@ struct ParticleConfig: Codable {
     ) {
         self.particleType = particleType
         self.particleCount = particleCount
-        self.animation = animation
         self.animationDelayThreshold = animationDelayThreshold
-        self.colors = colors
         self.blendMode = blendMode
         // Movement
         self.creationPoint = creationPoint
@@ -145,14 +141,4 @@ struct ParticleConfig: Codable {
         let randomRotationAngle = Angle(radians: randomRotation)
         return ParticleState(rotation + randomRotationAngle, rotation + rotationSpeed + randomRotationAngle)
     }
-
-    // MARK: - Codable conformance
-//    func encode(to encoder: Encoder) throws {
-//
-//    }
-//
-//    init(from decoder: Decoder) throws {
-//        var container = try decoder.unkeyedContainer()
-//        self = try container.decode(ParticleConfig.self)
-//    }
 }
