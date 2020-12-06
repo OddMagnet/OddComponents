@@ -25,6 +25,9 @@ enum ParticleType: String, CaseIterable, Codable {
 }
 
 struct ParticleConfig: Codable {
+    static func load(from file: String) -> ParticleConfig {
+        return Bundle.main.decode(ParticleConfig.self, from: file)
+    }
     // General
     var particleType: ParticleType
     private var type: ParticleType {
