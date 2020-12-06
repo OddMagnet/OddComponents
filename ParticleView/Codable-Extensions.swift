@@ -92,10 +92,11 @@ extension UnitPoint: Codable {
             case "bottomTrailing": self = .bottomTrailing
             case "": self.init()
             case let x_y:
-                let f = NumberFormatter()
+                let formatter = NumberFormatter()
+                formatter.decimalSeparator = "."
                 let str = x_y.components(separatedBy: "x")
-                guard let x = f.number(from: str[0]) else { fatalError() }
-                guard let y = f.number(from: str[1]) else { fatalError() }
+                guard let x = formatter.number(from: str[0]) else { fatalError() }
+                guard let y = formatter.number(from: str[1]) else { fatalError() }
                 self.init(x: CGFloat(truncating: x), y: CGFloat(truncating: y))
         }
     }
