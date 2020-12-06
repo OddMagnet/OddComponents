@@ -7,116 +7,12 @@
 
 import SwiftUI
 
-fileprivate struct ParticleState<T> {
-    var start: T
-    var end: T
-
-    init(_ start: T, _ end: T) {
-        self.start = start
-        self.end = end
-    }
-}
-
-enum ParticleType: String, CaseIterable {
-    case spark
-    case line
-    case confetti
-    case random
-}
-
-struct ParticleConfig {
-    // General
-    var particleType: ParticleType
-    private var type: ParticleType {
-        switch particleType {
-            case .random:
-                return ParticleType.allCases.randomElement()!
-            default:
-                return particleType
-        }
-    }
-    var particleCount: Int
-    var animation = Animation.linear(duration: 1).repeatForever(autoreverses: false)
-    var animationDelayThreshold = 0.0
-    var colors = [Color.white]
-    var blendMode = BlendMode.normal
-
-    // Movement
-    var creationPoint = UnitPoint.center
-    var creationRange = CGSize.zero
-    var angle = Angle.zero
-    var angleRange = Angle.zero
-    var speed = 50.0
-    var speedRange = 0.0
-
-    // Scale and opacity
-    var opacity = 1.0
-    var opacityRange = 0.0
-    var opacitySpeed = 0.0
-    var scale: CGFloat = 1
-    var scaleRange: CGFloat = 0
-    var scaleSpeed: CGFloat = 0
-
-    // Spinning and Blending
-    var rotation = Angle.zero
-    var rotationRange = Angle.zero
-    var rotationSpeed = Angle.zero
-
-    fileprivate func position(in proxy: GeometryProxy) -> ParticleState<CGPoint> {
-        // range of x/y variance a particle can have
-        let halfCreationRangeWidth = creationRange.width / 2
-        let halfCreationRangeHeight = creationRange.height / 2
-
-        // generate random offsets
-        let creationOffsetX = CGFloat.random(in: -halfCreationRangeWidth...halfCreationRangeWidth)
-        let creationOffsetY = CGFloat.random(in: -halfCreationRangeHeight...halfCreationRangeHeight)
-
-        // calculate start point
-        let startX = Double(proxy.size.width * (creationPoint.x + creationOffsetX))
-        let startY = Double(proxy.size.height * (creationPoint.y + creationOffsetY))
-        let start = CGPoint(x: startX, y: startY)
-
-        // generate a random speed and angle for the particle
-        let halfSpeedRange = speedRange / 2
-        let actualSpeed  = speed + Double.random(in: -halfSpeedRange...halfSpeedRange)
-        let halfAngleRange = angleRange.radians / 2
-        let actualDirection = angle.radians + Double.random(in: -halfAngleRange...halfAngleRange)
-
-        // calculate end point
-        let endX = cos(actualDirection - .pi / 2) * actualSpeed
-        let endY = sin(actualDirection - .pi / 2) * actualSpeed
-        let end = CGPoint(x: startX + endX, y: startY + endY)
-
-        return ParticleState(start, end)
-    }
-
-    fileprivate func makeOpacity() -> ParticleState<Double> {
-        let halfOpacityRange = opacityRange / 2
-        let randomOpacity = Double.random(in: -halfOpacityRange...halfOpacityRange)
-        return ParticleState(opacity + randomOpacity, opacity + opacitySpeed + randomOpacity)
-    }
-
-    fileprivate func makeScale() -> ParticleState<CGFloat> {
-        let halfScaleRange = scaleRange / 2
-        let randomScale = CGFloat.random(in: -halfScaleRange...halfScaleRange)
-        return ParticleState(scale + randomScale, scale + scaleSpeed + randomScale)
-    }
-
-    fileprivate func makeRotation() -> ParticleState<Angle> {
-        let halfRotationRange = (rotationRange / 2).radians
-        let randomRotation = Double.random(in: -halfRotationRange...halfRotationRange)
-        let randomRotationAngle = Angle(radians: randomRotation)
-        return ParticleState(rotation + randomRotationAngle, rotation + rotationSpeed + randomRotationAngle)
-    }
-
-}
-
 enum ParticleMode {
-    case Confetti, Explosion, Fireflies, Magic, Rain, Smoke, Snow
+    case confetti, explosion, fireflies, magic, rain, smoke, snow
 
     static func configFor(mode: ParticleMode) -> ParticleConfig {
         switch mode {
-            case .Confetti:
+            case .confetti:
                 return ParticleConfig(
                     particleType: .confetti, particleCount: 50,
                     animation: Animation.linear(duration: 5).repeatForever(autoreverses: false),
@@ -128,7 +24,7 @@ enum ParticleMode {
                     scale: 0.6,
                     rotationRange: .radians(.pi * 2), rotationSpeed: .radians(.pi)
                 )
-            case .Explosion:
+            case .explosion:
                 return ParticleConfig(
                     particleType: .spark, particleCount: 500,
                     animation: Animation.easeOut(duration: 1).repeatForever(autoreverses: false),
@@ -138,7 +34,7 @@ enum ParticleMode {
                     opacitySpeed: -1,
                     scale: 0.4, scaleRange: 0.1, scaleSpeed: 0.3
                 )
-            case .Fireflies:
+            case .fireflies:
                 return ParticleConfig(
                     particleType: .spark, particleCount: 100,
                     animation: Animation.easeInOut(duration: 1).repeatForever(autoreverses: false),
@@ -150,8 +46,7 @@ enum ParticleMode {
                     opacitySpeed: -1,
                     scale: 0.5, scaleRange: 0.2, scaleSpeed: -0.2
                 )
-            case .Magic:
-                // opacitySpeed: -1, scale: 0.5, scaleRange: 0.2, scaleSpeed: -0.2
+            case .magic:
                 return ParticleConfig(
                     particleType: .spark, particleCount: 200,
                     animation: Animation.easeOut(duration: 1).repeatForever(autoreverses: false),
@@ -162,7 +57,7 @@ enum ParticleMode {
                     opacitySpeed: -1,
                     scale: 0.5, scaleRange: 0.2, scaleSpeed: -0.2
                 )
-            case .Rain:
+            case .rain:
                 return ParticleConfig(
                     particleType: .line, particleCount: 100,
                     animation: Animation.linear(duration: 1).repeatForever(autoreverses: false),
@@ -174,7 +69,7 @@ enum ParticleMode {
                     opacityRange: 1,
                     scale: 0.6
                 )
-            case .Smoke:
+            case .smoke:
                 return ParticleConfig(
                     particleType: .spark, particleCount: 200,
                     animation: Animation.linear(duration: 3).repeatForever(autoreverses: false),
@@ -185,7 +80,7 @@ enum ParticleMode {
                     opacitySpeed: -1,
                     scale: 0.3, scaleRange: 0.1, scaleSpeed: 1
                 )
-            case .Snow:
+            case .snow:
                 return ParticleConfig(
                     particleType: .spark, particleCount: 100,
                     animation: Animation.linear(duration: 10).repeatForever(autoreverses: false),
@@ -271,7 +166,7 @@ struct ParticleView: View {
 struct ParticleView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            ParticleView(mode: .Snow)
+            ParticleView(mode: .snow)
         }
         .background(Color.black)
         .edgesIgnoringSafeArea(.all)
