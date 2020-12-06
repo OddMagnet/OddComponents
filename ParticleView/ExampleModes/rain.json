@@ -1,0 +1,24 @@
+{
+    "speed": 1000,
+    "speedRange": 400,
+    "opacityRange": 1,
+    "blendMode": "normal",
+    "opacitySpeed": 0,
+    "creationRange": [
+        1,
+        0
+    ],
+    "scale": 0.6,
+    "animationDelayThreshold": 1,
+    "angleRange": 0,
+    "angle": 180,
+    "scaleRange": 0,
+    "opacity": 1,
+    "scaleSpeed": 0,
+    "rotation": 0,
+    "particleCount": 100,
+    "creationPoint": "0.5x-0.1",
+    "rotationRange": 0,
+    "rotationSpeed": 0,
+    "particleType": "line"
+}

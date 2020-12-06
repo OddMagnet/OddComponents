@@ -17,6 +17,14 @@
 		4C58D8B2257CE0D10042A46C /* Codable-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C58D8B1257CE0D10042A46C /* Codable-Extensions.swift */; };
 		4C5D7357257AABFE00AF0501 /* ParticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D7356257AABFE00AF0501 /* ParticleView.swift */; };
 		4C5D735B257AAC1000AF0501 /* Particle.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C5D735A257AAC1000AF0501 /* Particle.xcassets */; };
+		4CC46353257D098200523D4F /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CC46352257D098200523D4F /* confetti.json */; };
+		4CC46357257D0C3500523D4F /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC46356257D0C3500523D4F /* Bundle-Decodable.swift */; };
+		4CC4635B257D0EEF00523D4F /* explosion.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CC4635A257D0EEF00523D4F /* explosion.json */; };
+		4CC4635E257D0FE500523D4F /* fireflies.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CC4635D257D0FE500523D4F /* fireflies.json */; };
+		4CC46361257D0FFF00523D4F /* magic.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CC46360257D0FFF00523D4F /* magic.json */; };
+		4CC46364257D100F00523D4F /* rain.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CC46363257D100F00523D4F /* rain.json */; };
+		4CC46367257D102300523D4F /* smoke.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CC46366257D102300523D4F /* smoke.json */; };
+		4CC4636A257D103800523D4F /* snow.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CC46369257D103800523D4F /* snow.json */; };
 		4CED053925790CD2000C29F3 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CED053825790CD2000C29F3 /* WaveView.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +41,14 @@
 		4C58D8B1257CE0D10042A46C /* Codable-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable-Extensions.swift"; sourceTree = "<group>"; };
 		4C5D7356257AABFE00AF0501 /* ParticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleView.swift; sourceTree = "<group>"; };
 		4C5D735A257AAC1000AF0501 /* Particle.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Particle.xcassets; sourceTree = "<group>"; };
+		4CC46352257D098200523D4F /* confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = confetti.json; sourceTree = "<group>"; };
+		4CC46356257D0C3500523D4F /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
+		4CC4635A257D0EEF00523D4F /* explosion.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = explosion.json; sourceTree = "<group>"; };
+		4CC4635D257D0FE500523D4F /* fireflies.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = fireflies.json; sourceTree = "<group>"; };
+		4CC46360257D0FFF00523D4F /* magic.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = magic.json; sourceTree = "<group>"; };
+		4CC46363257D100F00523D4F /* rain.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = rain.json; sourceTree = "<group>"; };
+		4CC46366257D102300523D4F /* smoke.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = smoke.json; sourceTree = "<group>"; };
+		4CC46369257D103800523D4F /* snow.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = snow.json; sourceTree = "<group>"; };
 		4CED053825790CD2000C29F3 /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,6 +70,7 @@
 				4CED053225790C58000C29F3 /* WaveView */,
 				4C445C142563885100EE579D /* FilteringList */,
 				4C1E7180256386A90001D6B1 /* OddComponents */,
+				4CC46355257D0BF200523D4F /* GeneralHelpers */,
 				4C1E717F256386A90001D6B1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,12 +115,35 @@
 		4C5D7355257AABE200AF0501 /* ParticleView */ = {
 			isa = PBXGroup;
 			children = (
+				4CC46351257D086800523D4F /* ExampleModes */,
 				4C58D8AD257CDE880042A46C /* ParticleConfig.swift */,
 				4C5D7356257AABFE00AF0501 /* ParticleView.swift */,
 				4C5D735A257AAC1000AF0501 /* Particle.xcassets */,
 				4C58D8B1257CE0D10042A46C /* Codable-Extensions.swift */,
 			);
 			path = ParticleView;
+			sourceTree = "<group>";
+		};
+		4CC46351257D086800523D4F /* ExampleModes */ = {
+			isa = PBXGroup;
+			children = (
+				4CC46352257D098200523D4F /* confetti.json */,
+				4CC4635A257D0EEF00523D4F /* explosion.json */,
+				4CC4635D257D0FE500523D4F /* fireflies.json */,
+				4CC46360257D0FFF00523D4F /* magic.json */,
+				4CC46363257D100F00523D4F /* rain.json */,
+				4CC46366257D102300523D4F /* smoke.json */,
+				4CC46369257D103800523D4F /* snow.json */,
+			);
+			path = ExampleModes;
+			sourceTree = "<group>";
+		};
+		4CC46355257D0BF200523D4F /* GeneralHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				4CC46356257D0C3500523D4F /* Bundle-Decodable.swift */,
+			);
+			path = GeneralHelpers;
 			sourceTree = "<group>";
 		};
 		4CED053225790C58000C29F3 /* WaveView */ = {
@@ -172,8 +212,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C5D735B257AAC1000AF0501 /* Particle.xcassets in Resources */,
+				4CC46353257D098200523D4F /* confetti.json in Resources */,
+				4CC4636A257D103800523D4F /* snow.json in Resources */,
 				4C1E7189256386AB0001D6B1 /* Preview Assets.xcassets in Resources */,
+				4CC46364257D100F00523D4F /* rain.json in Resources */,
+				4CC4635E257D0FE500523D4F /* fireflies.json in Resources */,
+				4CC46361257D0FFF00523D4F /* magic.json in Resources */,
 				4C1E7186256386AB0001D6B1 /* Assets.xcassets in Resources */,
+				4CC46367257D102300523D4F /* smoke.json in Resources */,
+				4CC4635B257D0EEF00523D4F /* explosion.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +236,7 @@
 				4C58D8B2257CE0D10042A46C /* Codable-Extensions.swift in Sources */,
 				4C445C162563892100EE579D /* FilteringList.swift in Sources */,
 				4C1E7184256386A90001D6B1 /* ContentView.swift in Sources */,
+				4CC46357257D0C3500523D4F /* Bundle-Decodable.swift in Sources */,
 				4C58D8AE257CDE880042A46C /* ParticleConfig.swift in Sources */,
 				4C5D7357257AABFE00AF0501 /* ParticleView.swift in Sources */,
 				4C1E7182256386A90001D6B1 /* OddComponentsApp.swift in Sources */,

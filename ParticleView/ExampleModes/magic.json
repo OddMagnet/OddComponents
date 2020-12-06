@@ -1,0 +1,24 @@
+{
+    "speed": 120,
+    "speedRange": 120,
+    "opacityRange": 0,
+    "blendMode": "screen",
+    "opacitySpeed": -1,
+    "creationRange": [
+        0,
+        0
+    ],
+    "scale": 0.5,
+    "animationDelayThreshold": 1,
+    "angleRange": 360,
+    "angle": 0,
+    "scaleRange": 0.2,
+    "opacity": 1,
+    "scaleSpeed": -0.2,
+    "rotation": 0,
+    "particleCount": 200,
+    "creationPoint": "center",
+    "rotationRange": 0,
+    "rotationSpeed": 0,
+    "particleType": "spark"
+}

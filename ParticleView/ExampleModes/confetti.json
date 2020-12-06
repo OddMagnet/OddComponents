@@ -1,0 +1,24 @@
+{
+    "speed": 1200,
+    "speedRange": 800,
+    "opacityRange": 0,
+    "blendMode": "normal",
+    "opacitySpeed": 0,
+    "creationRange": [
+        1,
+        0
+    ],
+    "scale": 0.6,
+    "animationDelayThreshold": 5,
+    "angleRange": 45,
+    "angle": 180,
+    "scaleRange": 0,
+    "opacity": 1,
+    "scaleSpeed": 0,
+    "rotation": 0,
+    "particleCount": 50,
+    "creationPoint": "0.5x-0.1",
+    "rotationRange": 360,
+    "rotationSpeed": 180,
+    "particleType": "confetti"
+}
