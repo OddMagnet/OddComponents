@@ -106,16 +106,16 @@ struct FilteringList<T: Identifiable, Content: View>: View {
 struct FilteringList_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            FilteringList(userSampleData,
+            FilteringList(singerSampleData,
                           infoString: "Search...",
                           filterKeys: \.name, \.birthplace,
                           sortingKey: \.name,
                           ascending: false)
-            { user in
+            { singer in
                 VStack(alignment: .leading) {
-                    Text(user.name)
+                    Text(singer.name)
                         .font(.headline)
-                    Text(user.birthplace)
+                    Text(singer.birthplace)
                         .foregroundColor(.secondary)
                 }
 
