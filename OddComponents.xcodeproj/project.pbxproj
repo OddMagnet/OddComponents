@@ -28,6 +28,7 @@
 		4CC46364257D100F00523D4F /* rain.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CC46363257D100F00523D4F /* rain.json */; };
 		4CC46367257D102300523D4F /* smoke.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CC46366257D102300523D4F /* smoke.json */; };
 		4CC4636A257D103800523D4F /* snow.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CC46369257D103800523D4F /* snow.json */; };
+		4CCC7C8A259134410005ACF5 /* OddDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCC7C89259134410005ACF5 /* OddDefaults.swift */; };
 		4CED053925790CD2000C29F3 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CED053825790CD2000C29F3 /* WaveView.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		4CC46363257D100F00523D4F /* rain.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = rain.json; sourceTree = "<group>"; };
 		4CC46366257D102300523D4F /* smoke.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = smoke.json; sourceTree = "<group>"; };
 		4CC46369257D103800523D4F /* snow.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = snow.json; sourceTree = "<group>"; };
+		4CCC7C89259134410005ACF5 /* OddDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OddDefaults.swift; sourceTree = "<group>"; };
 		4CED053825790CD2000C29F3 /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				4CC46356257D0C3500523D4F /* Bundle-Decodable.swift */,
+				4CCC7C89259134410005ACF5 /* OddDefaults.swift */,
 			);
 			path = GeneralHelpers;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				4C58D8AE257CDE880042A46C /* ParticleConfig.swift in Sources */,
 				4C506DA52581322D0084E6A0 /* OddNetworking.swift in Sources */,
 				4C506DA125812F710084E6A0 /* NetworkingExampleView.swift in Sources */,
+				4CCC7C8A259134410005ACF5 /* OddDefaults.swift in Sources */,
 				4C5D7357257AABFE00AF0501 /* ParticleView.swift in Sources */,
 				4C1E7182256386A90001D6B1 /* OddComponentsApp.swift in Sources */,
 			);
