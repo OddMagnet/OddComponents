@@ -12,6 +12,7 @@
 		4C1E7184256386A90001D6B1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E7183256386A90001D6B1 /* ContentView.swift */; };
 		4C1E7186256386AB0001D6B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C1E7185256386AB0001D6B1 /* Assets.xcassets */; };
 		4C1E7189256386AB0001D6B1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C1E7188256386AB0001D6B1 /* Preview Assets.xcassets */; };
+		4C2DCDE725BDB75F00B7115B /* LongPressButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2DCDE625BDB75F00B7115B /* LongPressButtonView.swift */; };
 		4C445C162563892100EE579D /* FilteringList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C445C152563892100EE579D /* FilteringList.swift */; };
 		4C445C1A25638A1100EE579D /* Singer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C445C1925638A1100EE579D /* Singer.swift */; };
 		4C506DA125812F710084E6A0 /* NetworkingExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C506DA025812F710084E6A0 /* NetworkingExampleView.swift */; };
@@ -40,6 +41,7 @@
 		4C1E7185256386AB0001D6B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C1E7188256386AB0001D6B1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4C1E718A256386AB0001D6B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C2DCDE625BDB75F00B7115B /* LongPressButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressButtonView.swift; sourceTree = "<group>"; };
 		4C445C152563892100EE579D /* FilteringList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteringList.swift; sourceTree = "<group>"; };
 		4C445C1925638A1100EE579D /* Singer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singer.swift; sourceTree = "<group>"; };
 		4C506DA025812F710084E6A0 /* NetworkingExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingExampleView.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 		4C1E7175256386A90001D6B1 = {
 			isa = PBXGroup;
 			children = (
+				4C2DCDE525BDB70900B7115B /* LongPressButton */,
 				4C097A3F258E91F30089D98C /* HeroView */,
 				4C5D7355257AABE200AF0501 /* ParticleView */,
 				4CED053225790C58000C29F3 /* WaveView */,
@@ -119,6 +122,14 @@
 				4C1E7188256386AB0001D6B1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4C2DCDE525BDB70900B7115B /* LongPressButton */ = {
+			isa = PBXGroup;
+			children = (
+				4C2DCDE625BDB75F00B7115B /* LongPressButtonView.swift */,
+			);
+			path = LongPressButton;
 			sourceTree = "<group>";
 		};
 		4C445C142563885100EE579D /* FilteringList */ = {
@@ -267,6 +278,7 @@
 				4C1E7184256386A90001D6B1 /* ContentView.swift in Sources */,
 				4CC46357257D0C3500523D4F /* Bundle-Decodable.swift in Sources */,
 				4C58D8AE257CDE880042A46C /* ParticleConfig.swift in Sources */,
+				4C2DCDE725BDB75F00B7115B /* LongPressButtonView.swift in Sources */,
 				4C506DA52581322D0084E6A0 /* OddNetworking.swift in Sources */,
 				4C506DA125812F710084E6A0 /* NetworkingExampleView.swift in Sources */,
 				4CCC7C8A259134410005ACF5 /* OddDefaults.swift in Sources */,
