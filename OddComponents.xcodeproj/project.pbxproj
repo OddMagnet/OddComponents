@@ -31,6 +31,7 @@
 		4CC4636A257D103800523D4F /* snow.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CC46369257D103800523D4F /* snow.json */; };
 		4CCC7C8A259134410005ACF5 /* OddDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCC7C89259134410005ACF5 /* OddDefaults.swift */; };
 		4CED053925790CD2000C29F3 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CED053825790CD2000C29F3 /* WaveView.swift */; };
+		4CFC2F5725C3511F00449C82 /* FlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFC2F5625C3511F00449C82 /* FlipView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		4CC46369257D103800523D4F /* snow.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = snow.json; sourceTree = "<group>"; };
 		4CCC7C89259134410005ACF5 /* OddDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OddDefaults.swift; sourceTree = "<group>"; };
 		4CED053825790CD2000C29F3 /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
+		4CFC2F5625C3511F00449C82 /* FlipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 		4C1E7175256386A90001D6B1 = {
 			isa = PBXGroup;
 			children = (
+				4CFC2F5525C3511100449C82 /* FlipView */,
 				4C2DCDE525BDB70900B7115B /* LongPressButton */,
 				4C097A3F258E91F30089D98C /* HeroView */,
 				4C5D7355257AABE200AF0501 /* ParticleView */,
@@ -193,6 +196,14 @@
 			path = WaveView;
 			sourceTree = "<group>";
 		};
+		4CFC2F5525C3511100449C82 /* FlipView */ = {
+			isa = PBXGroup;
+			children = (
+				4CFC2F5625C3511F00449C82 /* FlipView.swift */,
+			);
+			path = FlipView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -280,6 +291,7 @@
 				4C58D8AE257CDE880042A46C /* ParticleConfig.swift in Sources */,
 				4C2DCDE725BDB75F00B7115B /* LongPressButtonView.swift in Sources */,
 				4C506DA52581322D0084E6A0 /* OddNetworking.swift in Sources */,
+				4CFC2F5725C3511F00449C82 /* FlipView.swift in Sources */,
 				4C506DA125812F710084E6A0 /* NetworkingExampleView.swift in Sources */,
 				4CCC7C8A259134410005ACF5 /* OddDefaults.swift in Sources */,
 				4C5D7357257AABFE00AF0501 /* ParticleView.swift in Sources */,
