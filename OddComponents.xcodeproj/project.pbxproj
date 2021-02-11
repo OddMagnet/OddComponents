@@ -22,6 +22,7 @@
 		4C58D8B2257CE0D10042A46C /* Codable-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C58D8B1257CE0D10042A46C /* Codable-Extensions.swift */; };
 		4C5D7357257AABFE00AF0501 /* ParticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D7356257AABFE00AF0501 /* ParticleView.swift */; };
 		4C5D735B257AAC1000AF0501 /* Particle.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C5D735A257AAC1000AF0501 /* Particle.xcassets */; };
+		4C67846225D5713D00072A25 /* AccessibleStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C67846125D5713D00072A25 /* AccessibleStackView.swift */; };
 		4CC46353257D098200523D4F /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CC46352257D098200523D4F /* confetti.json */; };
 		4CC46357257D0C3500523D4F /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC46356257D0C3500523D4F /* Bundle-Decodable.swift */; };
 		4CC4635B257D0EEF00523D4F /* explosion.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CC4635A257D0EEF00523D4F /* explosion.json */; };
@@ -54,6 +55,7 @@
 		4C58D8B1257CE0D10042A46C /* Codable-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable-Extensions.swift"; sourceTree = "<group>"; };
 		4C5D7356257AABFE00AF0501 /* ParticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleView.swift; sourceTree = "<group>"; };
 		4C5D735A257AAC1000AF0501 /* Particle.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Particle.xcassets; sourceTree = "<group>"; };
+		4C67846125D5713D00072A25 /* AccessibleStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibleStackView.swift; sourceTree = "<group>"; };
 		4CC46352257D098200523D4F /* confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = confetti.json; sourceTree = "<group>"; };
 		4CC46356257D0C3500523D4F /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 		4CC4635A257D0EEF00523D4F /* explosion.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = explosion.json; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				4C5D7355257AABE200AF0501 /* ParticleView */,
 				4CED053225790C58000C29F3 /* WaveView */,
 				4C445C142563885100EE579D /* FilteringList */,
+				4C67846025D5710900072A25 /* AccessibleStack */,
 				4C506D9F25812F2F0084E6A0 /* Networking */,
 				4C1E7180256386A90001D6B1 /* OddComponents */,
 				4CC46355257D0BF200523D4F /* GeneralHelpers */,
@@ -168,6 +171,14 @@
 				4C58D8B1257CE0D10042A46C /* Codable-Extensions.swift */,
 			);
 			path = ParticleView;
+			sourceTree = "<group>";
+		};
+		4C67846025D5710900072A25 /* AccessibleStack */ = {
+			isa = PBXGroup;
+			children = (
+				4C67846125D5713D00072A25 /* AccessibleStackView.swift */,
+			);
+			path = AccessibleStack;
 			sourceTree = "<group>";
 		};
 		4CC46351257D086800523D4F /* ExampleModes */ = {
@@ -304,6 +315,7 @@
 				4CC46357257D0C3500523D4F /* Bundle-Decodable.swift in Sources */,
 				4C58D8AE257CDE880042A46C /* ParticleConfig.swift in Sources */,
 				4C2DCDE725BDB75F00B7115B /* LongPressButtonView.swift in Sources */,
+				4C67846225D5713D00072A25 /* AccessibleStackView.swift in Sources */,
 				4C506DA52581322D0084E6A0 /* OddNetworking.swift in Sources */,
 				4C330F6325D1D2A300FA6070 /* ProgressViewStyles.swift in Sources */,
 				4CFC2F5725C3511F00449C82 /* FlipView.swift in Sources */,
