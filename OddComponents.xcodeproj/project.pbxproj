@@ -81,28 +81,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4C097A3F258E91F30089D98C /* HeroView */ = {
-			isa = PBXGroup;
-			children = (
-				4C097A40258E92060089D98C /* HeroView.swift */,
-			);
-			path = HeroView;
-			sourceTree = "<group>";
-		};
 		4C1E7175256386A90001D6B1 = {
 			isa = PBXGroup;
 			children = (
+				4C94448925DAA7E20065863C /* Views */,
+				4CC46355257D0BF200523D4F /* GeneralHelpers */,
 				4CEEA4A425CEEE860077CD5A /* ComponentStyles */,
-				4CFC2F5525C3511100449C82 /* FlipView */,
-				4C2DCDE525BDB70900B7115B /* LongPressButton */,
-				4C097A3F258E91F30089D98C /* HeroView */,
-				4C5D7355257AABE200AF0501 /* ParticleView */,
-				4CED053225790C58000C29F3 /* WaveView */,
 				4C445C142563885100EE579D /* FilteringList */,
-				4C67846025D5710900072A25 /* AccessibleStack */,
 				4C506D9F25812F2F0084E6A0 /* Networking */,
 				4C1E7180256386A90001D6B1 /* OddComponents */,
-				4CC46355257D0BF200523D4F /* GeneralHelpers */,
 				4C1E717F256386A90001D6B1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -135,14 +122,6 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		4C2DCDE525BDB70900B7115B /* LongPressButton */ = {
-			isa = PBXGroup;
-			children = (
-				4C2DCDE625BDB75F00B7115B /* LongPressButtonView.swift */,
-			);
-			path = LongPressButton;
-			sourceTree = "<group>";
-		};
 		4C445C142563885100EE579D /* FilteringList */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,12 +152,17 @@
 			path = ParticleView;
 			sourceTree = "<group>";
 		};
-		4C67846025D5710900072A25 /* AccessibleStack */ = {
+		4C94448925DAA7E20065863C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4C2DCDE625BDB75F00B7115B /* LongPressButtonView.swift */,
 				4C67846125D5713D00072A25 /* AccessibleStackView.swift */,
+				4CED053825790CD2000C29F3 /* WaveView.swift */,
+				4C5D7355257AABE200AF0501 /* ParticleView */,
+				4C097A40258E92060089D98C /* HeroView.swift */,
+				4CFC2F5625C3511F00449C82 /* FlipView.swift */,
 			);
-			path = AccessibleStack;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		4CC46351257D086800523D4F /* ExampleModes */ = {
@@ -204,14 +188,6 @@
 			path = GeneralHelpers;
 			sourceTree = "<group>";
 		};
-		4CED053225790C58000C29F3 /* WaveView */ = {
-			isa = PBXGroup;
-			children = (
-				4CED053825790CD2000C29F3 /* WaveView.swift */,
-			);
-			path = WaveView;
-			sourceTree = "<group>";
-		};
 		4CEEA4A425CEEE860077CD5A /* ComponentStyles */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,14 +195,6 @@
 				4C330F6225D1D2A300FA6070 /* ProgressViewStyles.swift */,
 			);
 			path = ComponentStyles;
-			sourceTree = "<group>";
-		};
-		4CFC2F5525C3511100449C82 /* FlipView */ = {
-			isa = PBXGroup;
-			children = (
-				4CFC2F5625C3511F00449C82 /* FlipView.swift */,
-			);
-			path = FlipView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

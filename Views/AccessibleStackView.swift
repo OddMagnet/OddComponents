@@ -17,7 +17,7 @@ struct AccessibleStack<Content: View>: View {
     var verticalStartSize: ContentSizeCategory
     let content: () -> Content
 
-    // custom initializer in order to use @ViewBuilder for `content`
+    // custom initialiser in order to use @ViewBuilder for `content`
     init(
         horizontalAlignment: HorizontalAlignment = .center,
         verticalAlignment: VerticalAlignment = .center,
@@ -44,7 +44,7 @@ struct AccessibleStack<Content: View>: View {
 struct AccessibleStackDemo: View {
     var body: some View {
         AccessibleStack(spacing: 10) {
-            Text("If the fontsize is small, this will be")
+            Text("If the font-size is small, this will be")
             Text("horizontal, otherwise it will be vertical")
         }
     }
