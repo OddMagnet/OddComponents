@@ -1,5 +1,5 @@
 //
-//  LongPressButtonView.swift
+//  LongPressButton.swift
 //  OddComponents
 //
 //  Created by Michael Brünen on 24.01.21.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-/// A customizable LongPressButton
-struct LongPressButtonView<Content: View>: View {
+/// A customisable LongPressButton
+struct LongPressButton<Content: View>: View {
     var content: Content
     var backgroundColor: Color = .clear
     var foregroundColor: Color = .primary
@@ -61,9 +61,9 @@ struct LongPressButtonView<Content: View>: View {
     }
 }
 
-struct LongPressButtonView_Previews: PreviewProvider {
+struct LongPressButton_Previews: PreviewProvider {
     static var previews: some View {
-        LongPressButtonView(
+        LongPressButton(
             content: Image(systemName: "star.fill"),
             action: { print("Hello action") }
         )

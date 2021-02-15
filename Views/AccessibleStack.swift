@@ -1,5 +1,5 @@
 //
-//  AccessibleStackView.swift
+//  AccessibleStack.swift
 //  OddComponents
 //
 //  Created by Michael Brünen on 11.02.21.
