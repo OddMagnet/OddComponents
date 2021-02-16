@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C0430A225DBF738000EAAC2 /* RadialMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0430A125DBF738000EAAC2 /* RadialMenu.swift */; };
 		4C097A41258E92060089D98C /* HeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C097A40258E92060089D98C /* HeroView.swift */; };
 		4C1E7182256386A90001D6B1 /* OddComponentsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E7181256386A90001D6B1 /* OddComponentsApp.swift */; };
 		4C1E7184256386A90001D6B1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E7183256386A90001D6B1 /* ContentView.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C0430A125DBF738000EAAC2 /* RadialMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialMenu.swift; sourceTree = "<group>"; };
 		4C097A40258E92060089D98C /* HeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroView.swift; sourceTree = "<group>"; };
 		4C1E717E256386A90001D6B1 /* OddComponents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OddComponents.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C1E7181256386A90001D6B1 /* OddComponentsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OddComponentsApp.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				4C2DCDE625BDB75F00B7115B /* LongPressButton.swift */,
+				4C0430A125DBF738000EAAC2 /* RadialMenu.swift */,
 				4C67846125D5713D00072A25 /* AccessibleStack.swift */,
 				4CED053825790CD2000C29F3 /* WaveView.swift */,
 				4C5D7355257AABE200AF0501 /* ParticleView */,
@@ -278,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C445C1A25638A1100EE579D /* Singer.swift in Sources */,
+				4C0430A225DBF738000EAAC2 /* RadialMenu.swift in Sources */,
 				4CED053925790CD2000C29F3 /* WaveView.swift in Sources */,
 				4C097A41258E92060089D98C /* HeroView.swift in Sources */,
 				4C58D8B2257CE0D10042A46C /* Codable-Extensions.swift in Sources */,
