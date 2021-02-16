@@ -58,8 +58,10 @@ struct RadialMenu: View {
             // Radial buttons
             ForEach(0 ..< buttons.count, id: \.self) { i in
                 Button {
+                    let hapticFeedBackGenerator = UIImpactFeedbackGenerator(style: .medium)
                     buttons[i].action()
                     isExpanded.toggle()
+                    hapticFeedBackGenerator.impactOccurred()
                 } label: {
                     buttons[i].image
                 }
