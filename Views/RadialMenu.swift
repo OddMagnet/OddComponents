@@ -25,6 +25,7 @@ struct RadialButton {
     var label: String           // text for accessibility
     var image: Image
     var action: () -> Void
+    var animation: Animation? = nil
 }
 
 struct RadialMenu: View {
@@ -65,9 +66,12 @@ struct RadialMenu: View {
                 .accessibility(hidden: isExpanded == false)
                 .accessibility(label: Text(buttons[i].label))
                 .offset(offset(for: i))
+                .animation(
+                    // use the individual buttons animation if it has one, otherwise the general animation
+                    buttons[i].animation ?? animation
+                )
             }
             .opacity(isExpanded ? 1 : 0)
-            .animation(animation)
         }
         .actionSheet(isPresented: $isShowingSheet) {
             ActionSheet(
@@ -106,7 +110,7 @@ struct RadialMenuDemoView: View {
         [
             RadialButton(label: "Camera", image: Image(systemName: "camera.fill"), action: cameraTapped),
             RadialButton(label: "Video", image: Image(systemName: "video.fill"), action: videoTapped),
-            RadialButton(label: "Document", image: Image(systemName: "doc.fill"), action: documentsTapped)
+            RadialButton(label: "Document", image: Image(systemName: "doc.fill"), action: documentsTapped, animation: .spring(response: 1.0, dampingFraction: 0.5, blendDuration: 2.0))
         ]
     }
 
