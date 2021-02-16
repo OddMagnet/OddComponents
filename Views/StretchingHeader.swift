@@ -47,7 +47,7 @@ struct StretchingHeader<Content: View>: View {
     }
 }
 
-struct DemoView: View {
+struct StretchingHeaderDemoView: View {
     var body: some View {
         List {
             Section(
@@ -72,6 +72,6 @@ struct DemoView: View {
 
 struct StretchingHeader_Previews: PreviewProvider {
     static var previews: some View {
-        DemoView()
+        StretchingHeaderDemoView()
     }
 }
