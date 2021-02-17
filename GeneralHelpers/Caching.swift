@@ -34,6 +34,21 @@ final class Cache<Key: Hashable, Value> {
     }
 }
 
+extension Cache {
+    subscript(key: Key) -> Value? {
+        get { return value(forKey: key) }
+        set {
+            guard let value = newValue else {
+                // if nil is assigned, the value is removed from cache
+                removeValue(forKey: key)
+                return
+            }
+            // otherwise the new value is cache
+            insert(value, forKey: key)
+        }
+    }
+}
+
 private extension Cache {
     /// Wraps the public-facing key values  to make them compatible with NSCache
     final class WrappedKey: NSObject {
