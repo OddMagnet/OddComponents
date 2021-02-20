@@ -26,6 +26,8 @@
 		4C5D7357257AABFE00AF0501 /* ParticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D7356257AABFE00AF0501 /* ParticleView.swift */; };
 		4C5D735B257AAC1000AF0501 /* Particle.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C5D735A257AAC1000AF0501 /* Particle.xcassets */; };
 		4C67846225D5713D00072A25 /* AccessibleStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C67846125D5713D00072A25 /* AccessibleStack.swift */; };
+		4C81D28125E14123006A1E93 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C81D28025E14123006A1E93 /* ButtonStyles.swift */; };
+		4C81D28425E14AC4006A1E93 /* ClassicColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C81D28325E14AC4006A1E93 /* ClassicColors.swift */; };
 		4C94449025DAA8E00065863C /* StretchingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94448F25DAA8E00065863C /* StretchingHeader.swift */; };
 		4CC46353257D098200523D4F /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CC46352257D098200523D4F /* confetti.json */; };
 		4CC46357257D0C3500523D4F /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC46356257D0C3500523D4F /* Bundle-Decodable.swift */; };
@@ -63,6 +65,8 @@
 		4C5D7356257AABFE00AF0501 /* ParticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleView.swift; sourceTree = "<group>"; };
 		4C5D735A257AAC1000AF0501 /* Particle.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Particle.xcassets; sourceTree = "<group>"; };
 		4C67846125D5713D00072A25 /* AccessibleStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibleStack.swift; sourceTree = "<group>"; };
+		4C81D28025E14123006A1E93 /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
+		4C81D28325E14AC4006A1E93 /* ClassicColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicColors.swift; sourceTree = "<group>"; };
 		4C94448F25DAA8E00065863C /* StretchingHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchingHeader.swift; sourceTree = "<group>"; };
 		4CC46352257D098200523D4F /* confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = confetti.json; sourceTree = "<group>"; };
 		4CC46356257D0C3500523D4F /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 				4CC46356257D0C3500523D4F /* Bundle-Decodable.swift */,
 				4CCC7C89259134410005ACF5 /* OddDefaults.swift */,
 				4C33838725DD670F0096751B /* Caching.swift */,
+				4C81D28325E14AC4006A1E93 /* ClassicColors.swift */,
 			);
 			path = GeneralHelpers;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 			children = (
 				4CEEA4A525CEEE9D0077CD5A /* ToggleStyles.swift */,
 				4C330F6225D1D2A300FA6070 /* ProgressViewStyles.swift */,
+				4C81D28025E14123006A1E93 /* ButtonStyles.swift */,
 			);
 			path = ComponentStyles;
 			sourceTree = "<group>";
@@ -294,6 +300,7 @@
 				4C445C162563892100EE579D /* FilteringList.swift in Sources */,
 				4C1E7184256386A90001D6B1 /* ContentView.swift in Sources */,
 				4CC46357257D0C3500523D4F /* Bundle-Decodable.swift in Sources */,
+				4C81D28125E14123006A1E93 /* ButtonStyles.swift in Sources */,
 				4C58D8AE257CDE880042A46C /* ParticleConfig.swift in Sources */,
 				4C33838525DD5E150096751B /* RemoteImage.swift in Sources */,
 				4C2DCDE725BDB75F00B7115B /* LongPressButton.swift in Sources */,
@@ -303,6 +310,7 @@
 				4CFC2F5725C3511F00449C82 /* FlipView.swift in Sources */,
 				4C506DA125812F710084E6A0 /* NetworkingExampleView.swift in Sources */,
 				4CCC7C8A259134410005ACF5 /* OddDefaults.swift in Sources */,
+				4C81D28425E14AC4006A1E93 /* ClassicColors.swift in Sources */,
 				4C5D7357257AABFE00AF0501 /* ParticleView.swift in Sources */,
 				4C1E7182256386A90001D6B1 /* OddComponentsApp.swift in Sources */,
 				4C94449025DAA8E00065863C /* StretchingHeader.swift in Sources */,
