@@ -13,6 +13,7 @@
 		4C1E7184256386A90001D6B1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E7183256386A90001D6B1 /* ContentView.swift */; };
 		4C1E7186256386AB0001D6B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C1E7185256386AB0001D6B1 /* Assets.xcassets */; };
 		4C1E7189256386AB0001D6B1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C1E7188256386AB0001D6B1 /* Preview Assets.xcassets */; };
+		4C24F8C525E2655A004E637E /* View+ForegroundMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C24F8C425E2655A004E637E /* View+ForegroundMask.swift */; };
 		4C2DCDE725BDB75F00B7115B /* LongPressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2DCDE625BDB75F00B7115B /* LongPressButton.swift */; };
 		4C330F6325D1D2A300FA6070 /* ProgressViewStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C330F6225D1D2A300FA6070 /* ProgressViewStyles.swift */; };
 		4C33838525DD5E150096751B /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C33838425DD5E150096751B /* RemoteImage.swift */; };
@@ -52,6 +53,7 @@
 		4C1E7185256386AB0001D6B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C1E7188256386AB0001D6B1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4C1E718A256386AB0001D6B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C24F8C425E2655A004E637E /* View+ForegroundMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ForegroundMask.swift"; sourceTree = "<group>"; };
 		4C2DCDE625BDB75F00B7115B /* LongPressButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressButton.swift; sourceTree = "<group>"; };
 		4C330F6225D1D2A300FA6070 /* ProgressViewStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewStyles.swift; sourceTree = "<group>"; };
 		4C33838425DD5E150096751B /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				4CCC7C89259134410005ACF5 /* OddDefaults.swift */,
 				4C33838725DD670F0096751B /* Caching.swift */,
 				4C81D28325E14AC4006A1E93 /* ClassicColors.swift */,
+				4C24F8C425E2655A004E637E /* View+ForegroundMask.swift */,
 			);
 			path = GeneralHelpers;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				4C1E7184256386A90001D6B1 /* ContentView.swift in Sources */,
 				4CC46357257D0C3500523D4F /* Bundle-Decodable.swift in Sources */,
 				4C81D28125E14123006A1E93 /* ButtonStyles.swift in Sources */,
+				4C24F8C525E2655A004E637E /* View+ForegroundMask.swift in Sources */,
 				4C58D8AE257CDE880042A46C /* ParticleConfig.swift in Sources */,
 				4C33838525DD5E150096751B /* RemoteImage.swift in Sources */,
 				4C2DCDE725BDB75F00B7115B /* LongPressButton.swift in Sources */,
