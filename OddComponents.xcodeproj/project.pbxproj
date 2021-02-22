@@ -26,6 +26,8 @@
 		4C58D8B2257CE0D10042A46C /* Codable-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C58D8B1257CE0D10042A46C /* Codable-Extensions.swift */; };
 		4C5D7357257AABFE00AF0501 /* ParticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D7356257AABFE00AF0501 /* ParticleView.swift */; };
 		4C5D735B257AAC1000AF0501 /* Particle.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C5D735A257AAC1000AF0501 /* Particle.xcassets */; };
+		4C66F1E225E3D6B500999BCB /* AnimatedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C66F1E125E3D6B500999BCB /* AnimatedButton.swift */; };
+		4C66F1E625E3D88700999BCB /* AnimatingButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C66F1E525E3D88700999BCB /* AnimatingButtonStyle.swift */; };
 		4C67846225D5713D00072A25 /* AccessibleStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C67846125D5713D00072A25 /* AccessibleStack.swift */; };
 		4C81D28125E14123006A1E93 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C81D28025E14123006A1E93 /* ButtonStyles.swift */; };
 		4C81D28425E14AC4006A1E93 /* ClassicColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C81D28325E14AC4006A1E93 /* ClassicColors.swift */; };
@@ -66,6 +68,8 @@
 		4C58D8B1257CE0D10042A46C /* Codable-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable-Extensions.swift"; sourceTree = "<group>"; };
 		4C5D7356257AABFE00AF0501 /* ParticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleView.swift; sourceTree = "<group>"; };
 		4C5D735A257AAC1000AF0501 /* Particle.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Particle.xcassets; sourceTree = "<group>"; };
+		4C66F1E125E3D6B500999BCB /* AnimatedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedButton.swift; sourceTree = "<group>"; };
+		4C66F1E525E3D88700999BCB /* AnimatingButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatingButtonStyle.swift; sourceTree = "<group>"; };
 		4C67846125D5713D00072A25 /* AccessibleStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibleStack.swift; sourceTree = "<group>"; };
 		4C81D28025E14123006A1E93 /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		4C81D28325E14AC4006A1E93 /* ClassicColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicColors.swift; sourceTree = "<group>"; };
@@ -169,6 +173,7 @@
 		4C94448925DAA7E20065863C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4C66F1E125E3D6B500999BCB /* AnimatedButton.swift */,
 				4C2DCDE625BDB75F00B7115B /* LongPressButton.swift */,
 				4C0430A125DBF738000EAAC2 /* RadialMenu.swift */,
 				4C67846125D5713D00072A25 /* AccessibleStack.swift */,
@@ -204,6 +209,7 @@
 				4C33838725DD670F0096751B /* Caching.swift */,
 				4C81D28325E14AC4006A1E93 /* ClassicColors.swift */,
 				4C24F8C425E2655A004E637E /* View+ForegroundMask.swift */,
+				4C66F1E525E3D88700999BCB /* AnimatingButtonStyle.swift */,
 			);
 			path = GeneralHelpers;
 			sourceTree = "<group>";
@@ -307,6 +313,8 @@
 				4C24F8C525E2655A004E637E /* View+ForegroundMask.swift in Sources */,
 				4C58D8AE257CDE880042A46C /* ParticleConfig.swift in Sources */,
 				4C33838525DD5E150096751B /* RemoteImage.swift in Sources */,
+				4C66F1E225E3D6B500999BCB /* AnimatedButton.swift in Sources */,
+				4C66F1E625E3D88700999BCB /* AnimatingButtonStyle.swift in Sources */,
 				4C2DCDE725BDB75F00B7115B /* LongPressButton.swift in Sources */,
 				4C67846225D5713D00072A25 /* AccessibleStack.swift in Sources */,
 				4C506DA52581322D0084E6A0 /* OddNetworking.swift in Sources */,
