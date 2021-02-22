@@ -267,7 +267,7 @@ struct FantasyButtonStyle: ButtonStyle {    // Inspired by the game 'Age of Empi
     }
 }
 
-struct SciFiTargetButton: ButtonStyle {
+struct SciFiTargetButtonStyle: ButtonStyle {
     let strokeColor: Color = .white
     let glowColor: Color = .blue
     let glowIntensity: CGFloat = 5
@@ -360,7 +360,7 @@ struct ButtonStylesDemoView: View {
             } label: {
                 Image(systemName: "star")
             }
-            .buttonStyle(SciFiTargetButton())
+            .buttonStyle(SciFiTargetButtonStyle())
             .background(Color.black)
         }
     }
