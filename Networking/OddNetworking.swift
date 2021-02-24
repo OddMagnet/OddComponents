@@ -26,10 +26,26 @@ func fetch<T: Decodable>(
         .retry(retries)                         // retry `x` times if the request fails
         .map(\.data)                            // publisher sends data, response and error, this filters out the data
         .decode(type: T.self, decoder: decoder) // then decode the data
-        .replaceError(with: defaultValue)       // make sure there is data, even if an error occured
+        .replaceError(with: defaultValue)       // make sure there is data, even if an error occurred
         .receive(on: thread)                    // select on which thread to run the pipeline
         .sink(receiveValue: completion)         // do some custom actions
         .store(in: &store)                      // finally, store it
+}
+
+func fetch<T: Decodable>(
+    _ url: URL,
+    withRetries retries: Int = 1,
+    withDecoder decoder: JSONDecoder = JSONDecoder(),
+    defaultValue: T,
+    receiveOn thread: DispatchQueue = .main
+) -> AnyPublisher<T, Never> {
+    URLSession.shared.dataTaskPublisher(for: url)
+        .retry(retries)                         // retry `x` times if the request fails
+        .map(\.data)                            // publisher sends data, response and error, this filters out the data
+        .decode(type: T.self, decoder: decoder) // then decode the data
+        .replaceError(with: defaultValue)       // make sure there is data, even if an error occurred
+        .receive(on: thread)                    // select on which thread to run the pipeline
+        .eraseToAnyPublisher()                  // type erasure to avoid extremely long types
 }
 
 func upload<Input: Encodable, Output: Decodable>(
