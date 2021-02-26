@@ -6,7 +6,9 @@
 //
 
 import SwiftUI
+import Combine
 
+// MARK: - Basic styles
 struct ColoredButtonStyle: ButtonStyle {
     let color: Color
 
@@ -136,6 +138,7 @@ struct GlassButtonStyle: ButtonStyle {
     }
 }
 
+// MARK: - Intermediate styles
 struct AquaButtonStyle: ButtonStyle {
     let background = Color(red: 0.3, green: 0.6, blue: 1)
     let highLight = Color(red: 0.7, green: 1, blue: 1)
@@ -319,49 +322,164 @@ struct SciFiTargetButtonStyle: ButtonStyle {
     }
 }
 
+// MARK: - Advanced styles
+// Different from the normal `ButtonStyle` protocol, `PrimitiveButtonStyle`
+// does not provide the button functionality, enabling completely custom behaviours
+#if DEBUG
+typealias CustomButtonType = DebugButtonStyle
+#else
+typealias CustomButtonType = DefaultButtonStyle
+#endif
+struct DebugButtonStyle: PrimitiveButtonStyle {
+    let location: String
+
+    func makeBody(configuration: Configuration) -> some View {
+        Button {
+            print("Pressed button on location: \(location)")
+            configuration.trigger()
+        } label: {
+            HStack {
+                Text("Debug: ")
+                configuration.label
+            }
+        }
+        .buttonStyle(DefaultButtonStyle())
+    }
+
+    // Setting the location to whatever the current file and line is that the buttons stems from
+    init(file: String = #file, line: Int = #line) {
+        location = "\(line) in \(file)"
+    }
+}
+
+struct CancellableButtonStyle: PrimitiveButtonStyle {
+    private struct CancellableButton: View {
+        let configuration: Configuration
+        let timeOut: Double
+
+        @State private var timerSubscription: Cancellable?
+        @State private var timer = Timer.publish(every: 0.01, on: .main, in: .common)
+        @State private var countDown = 0.0
+
+        var body: some View {
+            if timerSubscription == nil {
+                startButton
+            } else {
+                cancelButton
+                    .onReceive(timer) { _ in
+                        if countDown > 0.01 {
+                            countDown -= 0.01
+                        } else {
+                            configuration.trigger()
+                            cancelTimer()
+                        }
+                    }
+            }
+        }
+
+        var startButton: some View {
+            Button {
+                timer = Timer.publish(every: 0.01, on: .main, in: .common)
+                timerSubscription = timer.connect()
+                countDown = timeOut
+            } label: {
+                configuration.label
+            }
+        }
+
+        var cancelButton: some View {
+            Button {
+                cancelTimer()
+            } label: {
+                Text("\(countDown, specifier: "%.2f")")
+            }
+        }
+
+        func cancelTimer() {
+            timerSubscription?.cancel()
+            timerSubscription = nil
+        }
+    }
+
+    var timeOut: Double = 3.0
+
+    func makeBody(configuration: Configuration) -> some View {
+        CancellableButton(configuration: configuration, timeOut: timeOut)
+    }
+}
+
 struct ButtonStylesDemoView: View {
     var body: some View {
         VStack {
-            Text("Show me what you got")
+            Spacer()
 
-            Button("Colored Button") {
-                print("Pressed the colored button")
-            }
-            .buttonStyle(ColoredButtonStyle(color: .green))
+            Text("Basic Button Styles")
+                .font(.title)
+            HStack(spacing: 20) {
+                Button("x") {
+                    print("Pressed the colored button")
+                }
+                .buttonStyle(ColoredButtonStyle(color: .green))
 
-            Button("Striped Rectangle") {
-                print("Pressed the striped rectangle button")
-            }
-            .buttonStyle(StripedRectangleButtonStyle())
+                Button("x") {
+                    print("Pressed the striped rectangle button")
+                }
+                .buttonStyle(StripedRectangleButtonStyle())
 
-            Button("Push") {
-                print("Pressed the push button")
-            }
-            .buttonStyle(PushButtonStyle())
+                Button("x") {
+                    print("Pressed the push button")
+                }
+                .buttonStyle(PushButtonStyle())
 
-            Button("Glass Style") {
-                print("Pressed the glass style button")
+                Button("x") {
+                    print("Pressed the glass style button")
+                }
+                .buttonStyle(GlassButtonStyle(color: .classicRed))
             }
-            .buttonStyle(GlassButtonStyle(color: .classicGreen))
 
-            Button("Aqua Style") {
-                print("Pressed the aqua style button")
-            }
-            .buttonStyle(AquaButtonStyle())
+            Spacer()
 
-            Button("Fantasy Style") {
-                print("Pressed the fantasy style button")
-            }
-            .buttonStyle(FantasyButtonStyle())
-            .frame(width: 300)
+            Text("Intermediate Button Styles")
+                .font(.title)
+            HStack(spacing: 20) {
+                Button("x") {
+                    print("Pressed the aqua style button")
+                }
+                .buttonStyle(AquaButtonStyle())
 
-            Button {
-                print("Pressed the scifi style button")
-            } label: {
-                Image(systemName: "star")
+                Button("x") {
+                    print("Pressed the fantasy style button")
+                }
+                .buttonStyle(FantasyButtonStyle())
+                .frame(width: 50)
+
+                Button {
+                    print("Pressed the scifi style button")
+                } label: {
+                    Image(systemName: "star")
+                }
+                .buttonStyle(SciFiTargetButtonStyle())
+                .background(Color.black)
             }
-            .buttonStyle(SciFiTargetButtonStyle())
-            .background(Color.black)
+
+            Spacer()
+
+            Text("Advanced Button Styles")
+                .font(.title)
+            HStack(spacing: 20) {
+                Button("x") {
+                    print("Pressed the debugging style button")
+                }
+                .buttonStyle(CustomButtonType())
+
+                Button("x.xx") {
+                    print("Pressed the cancellable style button")
+                }
+                .frame(width: 35)
+                .buttonStyle(CancellableButtonStyle())
+            }
+
+            Spacer()
         }
     }
 }
