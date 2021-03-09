@@ -43,6 +43,7 @@
 		4CCC7C8A259134410005ACF5 /* OddDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCC7C89259134410005ACF5 /* OddDefaults.swift */; };
 		4CED053925790CD2000C29F3 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CED053825790CD2000C29F3 /* WaveView.swift */; };
 		4CEEA4A625CEEE9D0077CD5A /* ToggleStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEEA4A525CEEE9D0077CD5A /* ToggleStyles.swift */; };
+		4CF1D6FE25F7D99D00915967 /* TabbedSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF1D6FD25F7D99D00915967 /* TabbedSidebar.swift */; };
 		4CFC2F5725C3511F00449C82 /* FlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFC2F5625C3511F00449C82 /* FlipView.swift */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +86,7 @@
 		4CCC7C89259134410005ACF5 /* OddDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OddDefaults.swift; sourceTree = "<group>"; };
 		4CED053825790CD2000C29F3 /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 		4CEEA4A525CEEE9D0077CD5A /* ToggleStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleStyles.swift; sourceTree = "<group>"; };
+		4CF1D6FD25F7D99D00915967 /* TabbedSidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbedSidebar.swift; sourceTree = "<group>"; };
 		4CFC2F5625C3511F00449C82 /* FlipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,6 +185,7 @@
 				4CFC2F5625C3511F00449C82 /* FlipView.swift */,
 				4C94448F25DAA8E00065863C /* StretchingHeader.swift */,
 				4C33838425DD5E150096751B /* RemoteImage.swift */,
+				4CF1D6FD25F7D99D00915967 /* TabbedSidebar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				4C33838525DD5E150096751B /* RemoteImage.swift in Sources */,
 				4C66F1E225E3D6B500999BCB /* AnimatedButton.swift in Sources */,
 				4C66F1E625E3D88700999BCB /* AnimatingButtonStyle.swift in Sources */,
+				4CF1D6FE25F7D99D00915967 /* TabbedSidebar.swift in Sources */,
 				4C2DCDE725BDB75F00B7115B /* LongPressButton.swift in Sources */,
 				4C67846225D5713D00072A25 /* AccessibleStack.swift in Sources */,
 				4C506DA52581322D0084E6A0 /* OddNetworking.swift in Sources */,
