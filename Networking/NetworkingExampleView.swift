@@ -21,12 +21,66 @@ struct Message: Decodable, Identifiable {
     var message: String
 }
 
+struct NewsItem: Decodable, Identifiable {
+    let id: Int
+    let title: String
+    let strap: String
+    let url: URL
+    let main_image: String
+    let published_date: Date
+}
+
 struct NetworkingExampleView: View {
     @State private var requests = Set<AnyCancellable>()
     @State private var messages = [Message]()
     @State private var favorites = Set<Int>()
+    @State private var items = [NewsItem]()
 
     var body: some View {
+        NavigationView {
+            VStack {
+                Button("Fetch news") {
+                    // fetch the news!
+                    let url = URL(string: "https://www.hackingwithswift.com/samples/news.json")!
+                    let decoder = JSONDecoder()
+                    decoder.dateDecodingStrategy = .iso8601
+
+                    // create a publisher that contains an array of urls
+                    fetch(url, withDecoder: decoder, defaultValue: [URL]())
+                        // map the array of urls into an array of Publishers containing NewsItems (flatMap so it doesn't become array of Publishers of Publishers)
+                        .flatMap { urls in
+                            // use the arrays Sequence Publisher - a Publisher that publishes every element individually in sequence
+                            // call flatMap on the Publisher to get the individual URLs and return a new publisher in it's place
+                            urls.publisher.flatMap { url in
+                                // fetch every url in the array, returns a Publisher containing a NewsItem
+                                fetch(url, defaultValue: [NewsItem]())
+                            }
+                        }
+                        // wait for all elements to finish, then send them further down as an array of arrays
+                        .collect()
+                        // then join the arrays and assign it to the items variable
+                        .sink { values in
+                            let allItems = values.joined()
+                            items = allItems.sorted { $0.id > $1.id }
+                        }
+                        // finally, store the publisher
+                        .store(in: &requests)
+                }
+
+                List(items) { item in
+                    VStack(alignment: .leading) {
+                        Text(item.title)
+                            .font(.headline)
+                        Text(item.strap)
+                            .foregroundColor(.secondary)
+                    }
+                }
+                .listStyle(PlainListStyle())
+            }
+            .navigationTitle("Hacking with Swift")
+        }
+
+        /** Old Demo Stuff 2
         NavigationView {
             List(messages) { message in
                 HStack {
@@ -79,6 +133,8 @@ struct NetworkingExampleView: View {
             }
             .store(in: &requests)
         }
+        */
+
         /** Old Demo Stuff
          VStack {
          Spacer()
@@ -116,7 +172,6 @@ struct NetworkingExampleView: View {
          Spacer()
          }
          */
-
     }
 }
 
