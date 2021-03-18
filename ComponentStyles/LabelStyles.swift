@@ -36,6 +36,7 @@ struct CircledLabelStyle: LabelStyle {
     }
 }
 
+// MARK: - HoveringLabelStyle
 // Custom Label that responds to 'hovering', e.g. in iPadOS with a Trackpad
 // A protocol is used to restrict the generic LabelStyle of the Struct to only 'hover-aware' styles
 protocol HoveringLabelStyle: LabelStyle {
@@ -75,7 +76,6 @@ struct VerticalRevealingLabelStyle: HoveringLabelStyle {
         .contentShape(Capsule())
     }
 }
-
 struct HighlightingLabelStyle: HoveringLabelStyle {
     let hovering: Bool
 
@@ -87,6 +87,45 @@ struct HighlightingLabelStyle: HoveringLabelStyle {
         .padding()
         .background(Capsule().fill(Color.accentColor.opacity(hovering ? 0.2 : 0)))
         .contentShape(Capsule())
+    }
+}
+struct ScalingIconLabelStyle: HoveringLabelStyle {
+    let hovering: Bool
+
+    func makeBody(configuration: Configuration) -> some View {
+        VStack {
+            configuration.icon
+                .scaleEffect(hovering ? 2 : 1)
+            configuration.title
+                .scaleEffect(hovering ? 0 : 1)
+        }
+    }
+}
+
+// MARK: - AnimatedLabelStyle
+protocol AnimatedLabelStyle: LabelStyle {
+    init(animation: Double)
+}
+struct AnimatedLabel<LabelStyle: AnimatedLabelStyle, Title: View, Icon: View>: View {
+    let animatedLabelStyle: LabelStyle.Type
+    @State private var animationState: Double
+    let title: () -> Title
+    let icon: () -> Icon
+
+    var body: some View {
+        Label(title: title, icon: icon)
+            .labelStyle(animatedLabelStyle.init(animation: animationState))
+    }
+}
+struct OnHoverAnimatedLabelStyle: LabelStyle {
+    let animation: Double
+
+    func makeBody(configuration: Configuration) -> some View {
+        HStack {
+            configuration.icon
+            configuration.title
+        }
+        // TODO: Add Animation and test
     }
 }
 
@@ -131,6 +170,11 @@ struct LabelStylesDemoView: View {
                 }
                 HoveringLabel(style: HighlightingLabelStyle.self) {
                     Text("Hovering (Highlighting)")
+                } icon: {
+                    Image(systemName: "clock")
+                }
+                HoveringLabel(style: ScalingIconLabelStyle.self) {
+                    Text("Hovering (Scaling)")
                 } icon: {
                     Image(systemName: "clock")
                 }
