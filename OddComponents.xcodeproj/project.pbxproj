@@ -40,6 +40,7 @@
 		4CC46364257D100F00523D4F /* rain.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CC46363257D100F00523D4F /* rain.json */; };
 		4CC46367257D102300523D4F /* smoke.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CC46366257D102300523D4F /* smoke.json */; };
 		4CC4636A257D103800523D4F /* snow.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CC46369257D103800523D4F /* snow.json */; };
+		4CC89B7D2603BA0A0040C81E /* LabelStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC89B7C2603BA0A0040C81E /* LabelStyles.swift */; };
 		4CCC7C8A259134410005ACF5 /* OddDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCC7C89259134410005ACF5 /* OddDefaults.swift */; };
 		4CED053925790CD2000C29F3 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CED053825790CD2000C29F3 /* WaveView.swift */; };
 		4CEEA4A625CEEE9D0077CD5A /* ToggleStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEEA4A525CEEE9D0077CD5A /* ToggleStyles.swift */; };
@@ -83,6 +84,7 @@
 		4CC46363257D100F00523D4F /* rain.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = rain.json; sourceTree = "<group>"; };
 		4CC46366257D102300523D4F /* smoke.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = smoke.json; sourceTree = "<group>"; };
 		4CC46369257D103800523D4F /* snow.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = snow.json; sourceTree = "<group>"; };
+		4CC89B7C2603BA0A0040C81E /* LabelStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelStyles.swift; sourceTree = "<group>"; };
 		4CCC7C89259134410005ACF5 /* OddDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OddDefaults.swift; sourceTree = "<group>"; };
 		4CED053825790CD2000C29F3 /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 		4CEEA4A525CEEE9D0077CD5A /* ToggleStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleStyles.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				4CEEA4A525CEEE9D0077CD5A /* ToggleStyles.swift */,
 				4C330F6225D1D2A300FA6070 /* ProgressViewStyles.swift */,
 				4C81D28025E14123006A1E93 /* ButtonStyles.swift */,
+				4CC89B7C2603BA0A0040C81E /* LabelStyles.swift */,
 			);
 			path = ComponentStyles;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				4C81D28125E14123006A1E93 /* ButtonStyles.swift in Sources */,
 				4C24F8C525E2655A004E637E /* View+ForegroundMask.swift in Sources */,
 				4C58D8AE257CDE880042A46C /* ParticleConfig.swift in Sources */,
+				4CC89B7D2603BA0A0040C81E /* LabelStyles.swift in Sources */,
 				4C33838525DD5E150096751B /* RemoteImage.swift in Sources */,
 				4C66F1E225E3D6B500999BCB /* AnimatedButton.swift in Sources */,
 				4C66F1E625E3D88700999BCB /* AnimatingButtonStyle.swift in Sources */,
