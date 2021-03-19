@@ -48,7 +48,11 @@ struct HoveringLabel<LabelStyle: HoveringLabelStyle, Title: View, Icon: View>: V
     let icon: () -> Icon
     @State private var isHovered = false
 
-    init(style: LabelStyle.Type, title: @escaping () -> Title, icon: @escaping () -> Icon) {
+    init(
+        style: LabelStyle.Type,
+        title: @escaping () -> Title,
+        icon: @escaping () -> Icon
+    ) {
         self.hoverAwareLabelStyle = style
         self.title = title
         self.icon = icon
@@ -104,32 +108,47 @@ struct ScalingIconLabelStyle: HoveringLabelStyle {
 
 // MARK: - AnimatedLabelStyle
 protocol AnimatedLabelStyle: LabelStyle {
-    init(animation: Double)
+    init(animation: Binding<Double>)
 }
 struct AnimatedLabel<LabelStyle: AnimatedLabelStyle, Title: View, Icon: View>: View {
     let animatedLabelStyle: LabelStyle.Type
-    @State private var animationState: Double
     let title: () -> Title
     let icon: () -> Icon
+    var animationState: Binding<Double>
+
+    init(
+        style: LabelStyle.Type,
+        animation: Binding<Double>,
+        title: @escaping () -> Title,
+        icon: @escaping () -> Icon
+    ) {
+        self.animatedLabelStyle = style
+        self.title = title
+        self.icon = icon
+        self.animationState = animation
+    }
 
     var body: some View {
         Label(title: title, icon: icon)
             .labelStyle(animatedLabelStyle.init(animation: animationState))
     }
 }
-struct OnHoverAnimatedLabelStyle: LabelStyle {
-    let animation: Double
+struct PulsatingLabelStyle: AnimatedLabelStyle {
+    let animation: Binding<Double>
 
     func makeBody(configuration: Configuration) -> some View {
         HStack {
             configuration.icon
             configuration.title
         }
-        // TODO: Add Animation and test
+        .scaleEffect(CGFloat(animation.wrappedValue))
+        .animation(.linear(duration: 1))
     }
 }
 
 struct LabelStylesDemoView: View {
+    @State private var animation: Double = 1.0
+
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             Spacer()
@@ -177,6 +196,20 @@ struct LabelStylesDemoView: View {
                     Text("Hovering (Scaling)")
                 } icon: {
                     Image(systemName: "clock")
+                }
+            }
+
+            Spacer()
+
+            Section {
+                Text("Advanced").font(.title)
+                AnimatedLabel(style: PulsatingLabelStyle.self, animation: $animation) {
+                    Text("Animated")
+                } icon: {
+                    Image(systemName: "clock")
+                }
+                .onTapGesture {
+                    animation = animation == 1.0 ? 0.5 : 1.0
                 }
             }
 
