@@ -42,6 +42,8 @@ struct PieChartView: View {
     let showLegend: Bool
     let strokeWidth: Double?
 
+    var optionalColor = [Int: Color]()
+
     init(dataPoints: [DataPoint], showLegend: Bool = false, strokeWidth: Double? = nil) {
         var segments = [PieSegment]()
         let total = dataPoints.reduce(0) { $0 + $1.value }
@@ -52,6 +54,18 @@ struct PieChartView: View {
             let segment = PieSegment(data: point, startAngle: startAngle, amount: amount)
             segments.append(segment)
             startAngle += amount                                // update the startAngle after each new segment
+
+            // create a random color if the segment does not have one
+            if point.color == nil {
+                optionalColor[point.id] = Color(
+                    UIColor(
+                        red: CGFloat.random(in: 0...1),
+                        green: CGFloat.random(in: 0...1),
+                        blue: CGFloat.random(in: 0...1),
+                        alpha: 1.0
+                    )
+                )
+            }
         }
 
         pieSegments = segments
@@ -72,7 +86,7 @@ struct PieChartView: View {
             ZStack {
                 ForEach(pieSegments) { segment in
                     segment
-                        .fill(segment.data.color)
+                        .fill(segment.data.color ?? optionalColor[segment.data.id]!)
                 }
             }
             .mask(mask)
@@ -80,7 +94,7 @@ struct PieChartView: View {
                 ForEach(pieSegments) { segment in
                     HStack {
                         Circle()
-                            .fill(segment.data.color)
+                            .fill(segment.data.color ?? optionalColor[segment.data.id]!)
                             .frame(width: 20, height: 20)
                         Text(segment.data.title)
                     }
@@ -95,13 +109,15 @@ struct PieChartExampleView: View {
     @State private var yellowAmount = Double.random(in: 10...100)
     @State private var greenAmount = Double.random(in: 10...100)
     @State private var blueAmount = Double.random(in: 10...100)
+    @State private var randomAmount = Double.random(in: 10...100)
 
     var data: [DataPoint] {
         [
             DataPoint(id: 1, value: redAmount, color: .red, title: "Red Color"),
             DataPoint(id: 2, value: yellowAmount, color: .yellow, title: "Yellow Color"),
             DataPoint(id: 3, value: greenAmount, color: .green, title: "Green Color"),
-            DataPoint(id: 4, value: blueAmount, color: .blue, title: "Blue Color")
+            DataPoint(id: 4, value: blueAmount, color: .blue, title: "Blue Color"),
+            DataPoint(id: 5, value: randomAmount, title: "Random Color")
         ]
     }
 

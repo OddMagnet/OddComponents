@@ -10,11 +10,11 @@ import SwiftUI
 struct DataPoint: Identifiable {
     let id: Int
     let value: Double
-    let color: Color
+    let color: Color?
     let title: String
 
     // random ID, useful if DataPoints don't change
-    init(value: Double, color: Color, title: String = "") {
+    init(value: Double, color: Color? = nil, title: String = "") {
         self.id = Int.random(in: 1..<Int.max)
         self.value = value
         self.color = color
@@ -22,7 +22,7 @@ struct DataPoint: Identifiable {
     }
 
     // fixed ID
-    init(id: Int, value: Double, color: Color, title: String = "") {
+    init(id: Int, value: Double, color: Color? = nil, title: String = "") {
         self.id = id
         self.value = value
         self.color = color
