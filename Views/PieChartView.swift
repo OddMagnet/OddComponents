@@ -39,9 +39,10 @@ struct PieSegment: Shape, Identifiable {
 
 struct PieChartView: View {
     let pieSegments: [PieSegment]
+    let showLegend: Bool
     let strokeWidth: Double?
 
-    init(dataPoints: [DataPoint], strokeWidth: Double? = nil) {
+    init(dataPoints: [DataPoint], showLegend: Bool = false, strokeWidth: Double? = nil) {
         var segments = [PieSegment]()
         let total = dataPoints.reduce(0) { $0 + $1.value }
         var startAngle = -Double.pi / 2     // move the start by -90 degree, so it's at the top
@@ -54,6 +55,7 @@ struct PieChartView: View {
         }
 
         pieSegments = segments
+        self.showLegend = showLegend
         self.strokeWidth = strokeWidth
     }
 
@@ -66,13 +68,25 @@ struct PieChartView: View {
     }
 
     var body: some View {
-        ZStack {
-            ForEach(pieSegments) { segment in
-                segment
-                    .fill(segment.data.color)
+        VStack {
+            ZStack {
+                ForEach(pieSegments) { segment in
+                    segment
+                        .fill(segment.data.color)
+                }
+            }
+            .mask(mask)
+            VStack(alignment: .leading) {
+                ForEach(pieSegments) { segment in
+                    HStack {
+                        Circle()
+                            .fill(segment.data.color)
+                            .frame(width: 20, height: 20)
+                        Text(segment.data.title)
+                    }
+                }
             }
         }
-        .mask(mask)
     }
 }
 
@@ -84,15 +98,15 @@ struct PieChartExampleView: View {
 
     var data: [DataPoint] {
         [
-            DataPoint(id: 1, value: redAmount, color: .red),
-            DataPoint(id: 2, value: yellowAmount, color: .yellow),
-            DataPoint(id: 3, value: greenAmount, color: .green),
-            DataPoint(id: 4, value: blueAmount, color: .blue)
+            DataPoint(id: 1, value: redAmount, color: .red, title: "Red Color"),
+            DataPoint(id: 2, value: yellowAmount, color: .yellow, title: "Yellow Color"),
+            DataPoint(id: 3, value: greenAmount, color: .green, title: "Green Color"),
+            DataPoint(id: 4, value: blueAmount, color: .blue, title: "Blue Color")
         ]
     }
 
     var body: some View {
-        PieChartView(dataPoints: data, strokeWidth: 70)
+        PieChartView(dataPoints: data, showLegend: true, strokeWidth: 70)
             .onTapGesture {
                 withAnimation {
                     redAmount = Double.random(in: 25...75)
