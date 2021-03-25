@@ -13,6 +13,14 @@ struct PieSegment: Shape, Identifiable {
     var startAngle: Double
     var amount: Double
 
+    var animatableData: AnimatablePair<Double, Double> {
+        get { AnimatablePair(startAngle, amount) }
+        set {
+            startAngle = newValue.first
+            amount = newValue.second
+        }
+    }
+
     func path(in rect: CGRect) -> Path {
         let radius = min(rect.width, rect.height) / 2
         let center = CGPoint(x: rect.width / 2, y: rect.height / 2)
