@@ -54,18 +54,6 @@ struct PieChart: View {
             let segment = PieSegment(data: point, startAngle: startAngle, amount: amount)
             segments.append(segment)
             startAngle += amount                                // update the startAngle after each new segment
-
-            // create a random color if the segment does not have one
-            if point.color == nil {
-                optionalColor[point.id] = Color(
-                    UIColor(
-                        red: CGFloat.random(in: 0...1),
-                        green: CGFloat.random(in: 0...1),
-                        blue: CGFloat.random(in: 0...1),
-                        alpha: 1.0
-                    )
-                )
-            }
         }
 
         pieSegments = segments
@@ -86,7 +74,7 @@ struct PieChart: View {
             ZStack {
                 ForEach(pieSegments) { segment in
                     segment
-                        .fill(segment.data.color ?? optionalColor[segment.data.id]!)
+                        .fill(segment.data.color)
                 }
             }
             .mask(mask)
@@ -94,7 +82,7 @@ struct PieChart: View {
                 ForEach(pieSegments) { segment in
                     HStack {
                         Circle()
-                            .fill(segment.data.color ?? optionalColor[segment.data.id]!)
+                            .fill(segment.data.color)
                             .frame(width: 20, height: 20)
                         Text(segment.data.title)
                     }
