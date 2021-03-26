@@ -32,7 +32,8 @@
 		4C81D28125E14123006A1E93 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C81D28025E14123006A1E93 /* ButtonStyles.swift */; };
 		4C81D28425E14AC4006A1E93 /* ClassicColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C81D28325E14AC4006A1E93 /* ClassicColors.swift */; };
 		4C94449025DAA8E00065863C /* StretchingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94448F25DAA8E00065863C /* StretchingHeader.swift */; };
-		4CB4B28A260D3062004A9B9F /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB4B289260D3062004A9B9F /* PieChartView.swift */; };
+		4C9B6C8C260E1FD600D18034 /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9B6C8B260E1FD600D18034 /* BarChart.swift */; };
+		4CB4B28A260D3062004A9B9F /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB4B289260D3062004A9B9F /* PieChart.swift */; };
 		4CB4B28D260D308A004A9B9F /* DataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB4B28C260D308A004A9B9F /* DataPoint.swift */; };
 		4CC46353257D098200523D4F /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CC46352257D098200523D4F /* confetti.json */; };
 		4CC46357257D0C3500523D4F /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC46356257D0C3500523D4F /* Bundle-Decodable.swift */; };
@@ -78,7 +79,8 @@
 		4C81D28025E14123006A1E93 /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		4C81D28325E14AC4006A1E93 /* ClassicColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicColors.swift; sourceTree = "<group>"; };
 		4C94448F25DAA8E00065863C /* StretchingHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchingHeader.swift; sourceTree = "<group>"; };
-		4CB4B289260D3062004A9B9F /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
+		4C9B6C8B260E1FD600D18034 /* BarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChart.swift; sourceTree = "<group>"; };
+		4CB4B289260D3062004A9B9F /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
 		4CB4B28C260D308A004A9B9F /* DataPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPoint.swift; sourceTree = "<group>"; };
 		4CC46352257D098200523D4F /* confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = confetti.json; sourceTree = "<group>"; };
 		4CC46356257D0C3500523D4F /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
@@ -192,7 +194,8 @@
 				4C94448F25DAA8E00065863C /* StretchingHeader.swift */,
 				4C33838425DD5E150096751B /* RemoteImage.swift */,
 				4CF1D6FD25F7D99D00915967 /* TabbedSidebar.swift */,
-				4CB4B289260D3062004A9B9F /* PieChartView.swift */,
+				4CB4B289260D3062004A9B9F /* PieChart.swift */,
+				4C9B6C8B260E1FD600D18034 /* BarChart.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -319,7 +322,7 @@
 				4C097A41258E92060089D98C /* HeroView.swift in Sources */,
 				4C58D8B2257CE0D10042A46C /* Codable-Extensions.swift in Sources */,
 				4C445C162563892100EE579D /* FilteringList.swift in Sources */,
-				4CB4B28A260D3062004A9B9F /* PieChartView.swift in Sources */,
+				4CB4B28A260D3062004A9B9F /* PieChart.swift in Sources */,
 				4C1E7184256386A90001D6B1 /* ContentView.swift in Sources */,
 				4CC46357257D0C3500523D4F /* Bundle-Decodable.swift in Sources */,
 				4C81D28125E14123006A1E93 /* ButtonStyles.swift in Sources */,
@@ -328,6 +331,7 @@
 				4C58D8AE257CDE880042A46C /* ParticleConfig.swift in Sources */,
 				4CC89B7D2603BA0A0040C81E /* LabelStyles.swift in Sources */,
 				4C33838525DD5E150096751B /* RemoteImage.swift in Sources */,
+				4C9B6C8C260E1FD600D18034 /* BarChart.swift in Sources */,
 				4C66F1E225E3D6B500999BCB /* AnimatedButton.swift in Sources */,
 				4C66F1E625E3D88700999BCB /* AnimatingButtonStyle.swift in Sources */,
 				4CF1D6FE25F7D99D00915967 /* TabbedSidebar.swift in Sources */,
