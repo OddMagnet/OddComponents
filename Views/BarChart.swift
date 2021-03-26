@@ -10,36 +10,51 @@ import SwiftUI
 struct BarChart: View {
     let dataPoints: [DataPoint]
     let maxValue: Double
+    let grids: Int
 
-    init(dataPoints: [DataPoint]) {
+    init(dataPoints: [DataPoint], grids: Int = 10) {
         self.dataPoints = dataPoints
 
         let highestPoint = dataPoints.max { $0.value < $1.value }
         maxValue = highestPoint?.value ?? 1
+
+        self.grids = grids
+    }
+
+    func gridLines() -> some View {
+        VStack {
+            ForEach(1...grids, id: \.self) { _ in
+                Divider()
+                Spacer()
+            }
+        }
+    }
+
+    func numberFor(grid value: Int) -> String {
+        let number = maxValue / Double(grids) * Double(value)
+        return String(Int(number))
+    }
+
+    func gridNumbers() -> some View {
+        VStack {
+            ForEach((1...grids).reversed(), id: \.self) { i in
+                Text(numberFor(grid: i))
+                    .padding(.horizontal)
+                    .animation(nil)
+                Spacer()
+            }
+        }
     }
 
     var body: some View {
         // ZStack so grid lines can be drawn in the background
         ZStack {
-            // VStack for the background grid lines
-            VStack {
-                ForEach(1...10, id: \.self) { _ in
-                    Divider()
-                    Spacer()
-                }
-            }
+            gridLines()
 
             // HStack for the grid numbers and bars
             HStack {
-                // VStack for the grid numbers
-                VStack {
-                    ForEach((1...10).reversed(), id: \.self) { i in
-                        Text(String(Int(maxValue / 10 * Double(i))))
-                            .padding(.horizontal)
-                            .animation(nil)
-                        Spacer()
-                    }
-                }
+                gridNumbers()
+
                 // For every bar needed
                 ForEach(dataPoints) { data in
                     // a VStack to contain the bar itself and it's title
@@ -52,6 +67,8 @@ struct BarChart: View {
                             .bold()
                     }
                 }
+
+                Spacer()
             }
         }
     }
@@ -75,7 +92,7 @@ struct BarChartDemoView: View {
     }
 
     var body: some View {
-        BarChart(dataPoints: data)
+        BarChart(dataPoints: data, grids: 15)
             .onTapGesture {
                 withAnimation {
                     redAmount = Double.random(in: 25...75)
