@@ -37,7 +37,7 @@ struct PieSegment: Shape, Identifiable {
     }
 }
 
-struct PieChartView: View {
+struct PieChart: View {
     let pieSegments: [PieSegment]
     let showLegend: Bool
     let strokeWidth: Double?
@@ -104,7 +104,7 @@ struct PieChartView: View {
     }
 }
 
-struct PieChartExampleView: View {
+struct PieChartDemoView: View {
     @State private var redAmount = Double.random(in: 10...100)
     @State private var yellowAmount = Double.random(in: 10...100)
     @State private var greenAmount = Double.random(in: 10...100)
@@ -122,7 +122,7 @@ struct PieChartExampleView: View {
     }
 
     var body: some View {
-        PieChartView(dataPoints: data, showLegend: true, strokeWidth: 70)
+        PieChart(dataPoints: data, showLegend: true, strokeWidth: 70)
             .onTapGesture {
                 withAnimation {
                     redAmount = Double.random(in: 25...75)
@@ -136,6 +136,6 @@ struct PieChartExampleView: View {
 
 struct PieChartView_Previews: PreviewProvider {
     static var previews: some View {
-        PieChartExampleView()
+        PieChartDemoView()
     }
 }
