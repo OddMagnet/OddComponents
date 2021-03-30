@@ -66,17 +66,55 @@ struct LineChart: View {
     var lineWith: CGFloat = 2
     var pointSize: CGFloat = 5
     var pointColor = Color.primary
+    var grids: Int = 10
+
+    var maxValue: Double {
+        let highestPoint = dataPoints.max { $0.value < $1.value }
+        return highestPoint?.value ?? 1
+    }
+
+    func gridLines() -> some View {
+        VStack {
+            ForEach(1...grids, id: \.self) { _ in
+                Divider()
+                Spacer()
+            }
+        }
+    }
+
+    func numberFor(grid value: Int) -> String {
+        let number = maxValue / Double(grids) * Double(value)
+        return String(Int(number))
+    }
+
+    func gridNumbers() -> some View {
+        VStack {
+            ForEach((1...grids).reversed(), id: \.self) { i in
+                Text(numberFor(grid: i))
+                    .padding(.horizontal)
+                    .animation(nil)
+                Spacer()
+            }
+        }
+    }
 
     var body: some View {
-        ZStack {
-            if lineColor != .clear {
-                LineChartShape(dataPoints: dataPoints, pointSize: pointSize, drawingLines: true)
-                    .stroke(lineColor, lineWidth: lineWith)
-            }
+        HStack {
+            gridNumbers()
+                .font(.caption2)
 
-            if pointColor != .clear {
-                LineChartShape(dataPoints: dataPoints, pointSize: pointSize, drawingLines: false)
-                    .fill(pointColor)
+            ZStack {
+                gridLines()
+
+                if lineColor != .clear {
+                    LineChartShape(dataPoints: dataPoints, pointSize: pointSize, drawingLines: true)
+                        .stroke(lineColor, lineWidth: lineWith)
+                }
+
+                if pointColor != .clear {
+                    LineChartShape(dataPoints: dataPoints, pointSize: pointSize, drawingLines: false)
+                        .fill(pointColor)
+                }
             }
         }
     }
@@ -86,8 +124,8 @@ struct LineChartDemoView: View {
     @State private var data = makeExampleDataPoints()
 
     var body: some View {
-        LineChart(dataPoints: data, lineColor: .blue, lineWith: 5, pointSize: 5, pointColor: .red)
-            .frame(width: 300, height: 200)
+        LineChart(dataPoints: data, lineColor: .blue, lineWith: 5, pointSize: 5, pointColor: .red, grids: 10)
+            .frame(width: 400, height: 300)
             .onTapGesture {
                 withAnimation {
                     data = Self.makeExampleDataPoints()
