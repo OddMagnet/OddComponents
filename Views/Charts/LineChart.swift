@@ -11,6 +11,20 @@ struct LineDataPoint {
     let value: Double
 }
 
+struct LineDataSet: Identifiable {
+    let id: Int
+    let dataPoints: [LineDataPoint]
+    var lineColor = Color.primary
+    var pointColor = Color.primary
+
+    init(dataPoints: [LineDataPoint], lineColor: Color = .primary, pointColor: Color = .primary) {
+        self.id = Int.random(in: 1..<Int.max)
+        self.dataPoints = dataPoints
+        self.lineColor = lineColor
+        self.pointColor = pointColor
+    }
+}
+
 struct LineChartShape: Shape {
     let dataPoints: [LineDataPoint]
     let pointSize: CGFloat
@@ -61,16 +75,77 @@ struct LineChartShape: Shape {
 }
 
 struct LineChart: View {
-    let dataPoints: [LineDataPoint]
-    var lineColor = Color.primary
-    var lineWidth: CGFloat = 2
-    var pointSize: CGFloat = 5
-    var pointColor = Color.primary
-    var grids: Int = 10
+    let dataSets: [LineDataSet]
+    var lineWidth: CGFloat
+    var pointSize: CGFloat
+    var grids: Int
 
     var maxValue: Double {
-        let highestPoint = dataPoints.max { $0.value < $1.value }
-        return highestPoint?.value ?? 1
+        var absoluteMax = 0.0
+
+        for set in dataSets {
+            let highestPoint = set.dataPoints.max { $0.value < $1.value }
+            if let value = highestPoint?.value {
+                if absoluteMax < value { absoluteMax = value }
+            }
+        }
+
+        return absoluteMax
+    }
+
+    /// Convenience initialiser for a single dataPoint set
+    /// - Parameters:
+    ///   - dataPoins: The set of data points
+    ///   - lineColor: The color of the lines, `.clear` to hide them
+    ///   - lineWidth: The width of the lines
+    ///   - pointColor: The color of the points, `.clear` to hide them
+    ///   - pointSize: The size of the points
+    ///   - grids: The amount of grids to display
+    init(dataPoins: [LineDataPoint],
+         lineColor: Color = .primary,
+         lineWidth: CGFloat = 2,
+         pointColor: Color = .primary,
+         pointSize: CGFloat = 5,
+         grids: Int = 10
+    ) {
+        let dataSets = [LineDataSet(dataPoints: dataPoins, lineColor: lineColor, pointColor: pointColor)]
+        self.init(dataSets: dataSets, lineWidth: lineWidth, pointSize: pointSize, grids: grids)
+    }
+
+    /// Convenience initialiser for multiple dataPoint sets
+    /// - Parameters:
+    ///   - dataSets: An array of `LineDataSet`, containing the data points, and the colors for lines and points, use `.clear` to hide them
+    ///   - lineWidth: The width of the lines
+    ///   - pointSize: The size of the points
+    ///   - grids: The amount of grids to display
+    init(dataSets: [LineDataSet], lineWidth: CGFloat = 2, pointSize: CGFloat = 5, grids: Int = 10) {
+        self.dataSets = dataSets
+        self.lineWidth = lineWidth
+        self.pointSize = pointSize
+        self.grids = grids
+    }
+
+    var body: some View {
+        HStack {
+            gridNumbers()
+                .font(.caption2)
+
+            ZStack {
+                gridLines()
+
+                ForEach(dataSets) { dataSet in
+                    if dataSet.lineColor != .clear {
+                        LineChartShape(dataPoints: dataSet.dataPoints, pointSize: pointSize, drawingLines: true)
+                            .stroke(dataSet.lineColor, lineWidth: lineWidth)
+                    }
+
+                    if dataSet.pointColor != .clear {
+                        LineChartShape(dataPoints: dataSet.dataPoints, pointSize: pointSize, drawingLines: false)
+                            .fill(dataSet.pointColor)
+                    }
+                }
+            }
+        }
     }
 
     func gridLines() -> some View {
@@ -97,38 +172,23 @@ struct LineChart: View {
             }
         }
     }
-
-    var body: some View {
-        HStack {
-            gridNumbers()
-                .font(.caption2)
-
-            ZStack {
-                gridLines()
-
-                if lineColor != .clear {
-                    LineChartShape(dataPoints: dataPoints, pointSize: pointSize, drawingLines: true)
-                        .stroke(lineColor, lineWidth: lineWidth)
-                }
-
-                if pointColor != .clear {
-                    LineChartShape(dataPoints: dataPoints, pointSize: pointSize, drawingLines: false)
-                        .fill(pointColor)
-                }
-            }
-        }
-    }
 }
 
 struct LineChartDemoView: View {
     @State private var data = makeExampleDataPoints()
+    @State private var data2 = makeExampleDataPoints()
 
     var body: some View {
-        LineChart(dataPoints: data, lineColor: .blue, lineWidth: 5, pointSize: 5, pointColor: .red, grids: 10)
+        LineChart(dataPoins: data, lineColor: .blue, pointColor: .red)
+//        LineChart(dataSets: [
+//            LineDataSet(dataPoints: data, lineColor: .blue, pointColor: .red),
+//            LineDataSet(dataPoints: data2, lineColor: .yellow, pointColor: .green)
+//        ])
             .frame(width: 400, height: 300)
             .onTapGesture {
                 withAnimation {
                     data = Self.makeExampleDataPoints()
+                    data2 = Self.makeExampleDataPoints()
                 }
             }
     }
