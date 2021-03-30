@@ -24,6 +24,7 @@
 		4C506DA52581322D0084E6A0 /* OddNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C506DA42581322D0084E6A0 /* OddNetworking.swift */; };
 		4C58D8AE257CDE880042A46C /* ParticleConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C58D8AD257CDE880042A46C /* ParticleConfig.swift */; };
 		4C58D8B2257CE0D10042A46C /* Codable-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C58D8B1257CE0D10042A46C /* Codable-Extensions.swift */; };
+		4C5A933C2613AA850059AC6D /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A933B2613AA850059AC6D /* LineChart.swift */; };
 		4C5D7357257AABFE00AF0501 /* ParticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D7356257AABFE00AF0501 /* ParticleView.swift */; };
 		4C5D735B257AAC1000AF0501 /* Particle.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C5D735A257AAC1000AF0501 /* Particle.xcassets */; };
 		4C66F1E225E3D6B500999BCB /* AnimatedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C66F1E125E3D6B500999BCB /* AnimatedButton.swift */; };
@@ -71,6 +72,7 @@
 		4C506DA42581322D0084E6A0 /* OddNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OddNetworking.swift; sourceTree = "<group>"; };
 		4C58D8AD257CDE880042A46C /* ParticleConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleConfig.swift; sourceTree = "<group>"; };
 		4C58D8B1257CE0D10042A46C /* Codable-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable-Extensions.swift"; sourceTree = "<group>"; };
+		4C5A933B2613AA850059AC6D /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
 		4C5D7356257AABFE00AF0501 /* ParticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleView.swift; sourceTree = "<group>"; };
 		4C5D735A257AAC1000AF0501 /* Particle.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Particle.xcassets; sourceTree = "<group>"; };
 		4C66F1E125E3D6B500999BCB /* AnimatedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedButton.swift; sourceTree = "<group>"; };
@@ -168,6 +170,17 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		4C5A933F2613AB4A0059AC6D /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				4CB4B28C260D308A004A9B9F /* DataPoint.swift */,
+				4CB4B289260D3062004A9B9F /* PieChart.swift */,
+				4C9B6C8B260E1FD600D18034 /* BarChart.swift */,
+				4C5A933B2613AA850059AC6D /* LineChart.swift */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
 		4C5D7355257AABE200AF0501 /* ParticleView */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,8 +207,7 @@
 				4C94448F25DAA8E00065863C /* StretchingHeader.swift */,
 				4C33838425DD5E150096751B /* RemoteImage.swift */,
 				4CF1D6FD25F7D99D00915967 /* TabbedSidebar.swift */,
-				4CB4B289260D3062004A9B9F /* PieChart.swift */,
-				4C9B6C8B260E1FD600D18034 /* BarChart.swift */,
+				4C5A933F2613AB4A0059AC6D /* Charts */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -223,7 +235,6 @@
 				4C81D28325E14AC4006A1E93 /* ClassicColors.swift */,
 				4C24F8C425E2655A004E637E /* View+ForegroundMask.swift */,
 				4C66F1E525E3D88700999BCB /* AnimatingButtonStyle.swift */,
-				4CB4B28C260D308A004A9B9F /* DataPoint.swift */,
 			);
 			path = GeneralHelpers;
 			sourceTree = "<group>";
@@ -342,6 +353,7 @@
 				4CFC2F5725C3511F00449C82 /* FlipView.swift in Sources */,
 				4C506DA125812F710084E6A0 /* NetworkingExampleView.swift in Sources */,
 				4CCC7C8A259134410005ACF5 /* OddDefaults.swift in Sources */,
+				4C5A933C2613AA850059AC6D /* LineChart.swift in Sources */,
 				4C81D28425E14AC4006A1E93 /* ClassicColors.swift in Sources */,
 				4C5D7357257AABFE00AF0501 /* ParticleView.swift in Sources */,
 				4C1E7182256386A90001D6B1 /* OddComponentsApp.swift in Sources */,
