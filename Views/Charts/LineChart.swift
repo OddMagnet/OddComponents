@@ -15,10 +15,12 @@ struct LineChartShape: Shape {
     let dataPoints: [LineDataPoint]
     let pointSize: CGFloat
     let maxValue: Double
+    let drawingLines: Bool
 
-    init(dataPoints: [LineDataPoint], pointSize: CGFloat) {
+    init(dataPoints: [LineDataPoint], pointSize: CGFloat, drawingLines: Bool) {
         self.dataPoints = dataPoints
         self.pointSize = pointSize
+        self.drawingLines = drawingLines
 
         let highestPoint = dataPoints.max { $0.value < $1.value }
         maxValue = highestPoint?.value ?? 1
@@ -41,10 +43,16 @@ struct LineChartShape: Shape {
             x += drawRect.minX
             y += drawRect.minY
 
-            if index == 0 {
-                path.move(to: CGPoint(x: x, y: y))
+            if drawingLines {
+                if index == 0 {
+                    path.move(to: CGPoint(x: x, y: y))
+                } else {
+                    path.addLine(to: CGPoint(x: x, y: y))
+                }
             } else {
-                path.addLine(to: CGPoint(x: x, y: y))
+                x -= pointSize / 2
+                y -= pointSize / 2
+                path.addEllipse(in: CGRect(x: x, y: y, width: pointSize, height: pointSize))
             }
         }
 
@@ -57,12 +65,18 @@ struct LineChart: View {
     var lineColor = Color.primary
     var lineWith: CGFloat = 2
     var pointSize: CGFloat = 5
+    var pointColor = Color.primary
 
     var body: some View {
         ZStack {
             if lineColor != .clear {
-                LineChartShape(dataPoints: dataPoints, pointSize: pointSize)
+                LineChartShape(dataPoints: dataPoints, pointSize: pointSize, drawingLines: true)
                     .stroke(lineColor, lineWidth: lineWith)
+            }
+
+            if pointColor != .clear {
+                LineChartShape(dataPoints: dataPoints, pointSize: pointSize, drawingLines: false)
+                    .fill(pointColor)
             }
         }
     }
@@ -72,7 +86,7 @@ struct LineChartDemoView: View {
     @State private var data = makeExampleDataPoints()
 
     var body: some View {
-        LineChart(dataPoints: data, lineColor: .blue, lineWith: 5, pointSize: 5)
+        LineChart(dataPoints: data, lineColor: .blue, lineWith: 5, pointSize: 5, pointColor: .red)
             .frame(width: 300, height: 200)
             .onTapGesture {
                 withAnimation {
