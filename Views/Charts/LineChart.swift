@@ -63,7 +63,7 @@ struct LineChartShape: Shape {
 struct LineChart: View {
     let dataPoints: [LineDataPoint]
     var lineColor = Color.primary
-    var lineWith: CGFloat = 2
+    var lineWidth: CGFloat = 2
     var pointSize: CGFloat = 5
     var pointColor = Color.primary
     var grids: Int = 10
@@ -108,7 +108,7 @@ struct LineChart: View {
 
                 if lineColor != .clear {
                     LineChartShape(dataPoints: dataPoints, pointSize: pointSize, drawingLines: true)
-                        .stroke(lineColor, lineWidth: lineWith)
+                        .stroke(lineColor, lineWidth: lineWidth)
                 }
 
                 if pointColor != .clear {
@@ -124,7 +124,7 @@ struct LineChartDemoView: View {
     @State private var data = makeExampleDataPoints()
 
     var body: some View {
-        LineChart(dataPoints: data, lineColor: .blue, lineWith: 5, pointSize: 5, pointColor: .red, grids: 10)
+        LineChart(dataPoints: data, lineColor: .blue, lineWidth: 5, pointSize: 5, pointColor: .red, grids: 10)
             .frame(width: 400, height: 300)
             .onTapGesture {
                 withAnimation {
